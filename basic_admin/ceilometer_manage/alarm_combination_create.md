@@ -45,7 +45,7 @@ ceilometer alarm-combination-create --name <NAME>
 创建一个报警，当cpu_util_high和instance_time_long同时满足的时候，触发警报。
 
 ```
-# ceilometer alarm-combination-create --alarm_ids 9db1b034-5605-4643-a564-4dcf174ce0b7 --alarm_ids c8c881cd-453c-45d7-9970-93b787f47e40 --operator and --ok-action log:// --name cpu_and_time
+# ceilometer alarm-combination-create --alarm_ids 9db1b034-5605-4643-a564-4dcf174ce0b7 --alarm_ids c8c881cd-453c-45d7-9970-93b787f47e40 --operator and --alarm-action log:// --name cpu_and_time --repeat-actions True
 +---------------------------+-------------------------------------------------------------------+
 | Property                  | Value                                                             |
 +---------------------------+-------------------------------------------------------------------+
@@ -58,7 +58,7 @@ ceilometer alarm-combination-create --name <NAME>
 | enabled                   | True                                                              |
 | insufficient_data_actions | []                                                                |
 | name                      | cpu_and_time                                                      |
-| ok_actions                | [u'log://']                                                       |
+| alarm_actions                | [u'log://']                                                       |
 | operator                  | and                                                               |
 | project_id                |                                                                   |
 | repeat_actions            | False                                                             |

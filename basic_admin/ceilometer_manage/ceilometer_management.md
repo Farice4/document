@@ -22,9 +22,9 @@ ceilometer中主要的概念以下：
 
 * 每个resource都会有一些meter；
 
-* 平台会根据配置的采集周期，按时去采集某个时间点某个resource的某个meter的值，就成为了sample；
+* 平台会根据配置的采集周期，按时去采集某个时间点某个resource的某个meter的值，得到sample值；
 
-* 平台根据很多个时间点的sample，来进行数据统计，计算出某段时间meter值的max、min等，就成了statistics；
+* 平台根据多个时间点的sample，来进行数据统计，计算出某段时间meter值的max、min等，得到statistics统计值；
 
 * 一个alarm根据statistics对报警条件进行判断报警状态，然后进行响应的操作；
 

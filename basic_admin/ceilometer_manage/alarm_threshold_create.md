@@ -56,14 +56,6 @@ ceilometer alarm-threshold-create --name <NAME>
 
     * `--state <STATE>`
 
-    警报的当前状态，共三种状态：
-
-        * Insufficient Data：默认状态，数据不足
-
-        * OK：数据充足，但未告警
-
-        * ALARM：告警状态
-
     该项参数一般在创建的时候不使用。
 
     * `--enabled {True|False}`
@@ -88,7 +80,9 @@ ceilometer alarm-threshold-create --name <NAME>
 
     可以制定多个时间约束，格式如下：
 
-    `name=<CONSTRAINT_NAME>;start=<CRON>;duration=<SECONDS>;[description=<DESCRIPTION>;[timezone=<IANA Timezone>]]`
+    ```
+    name=<CONSTRAINT_NAME>;start=<CRON>;duration=<SECONDS>;[description=<DESCRIPTION>;[timezone=<IANA Timezone>]]
+    ```
 
     * `--period <PERIOD>`
 
@@ -110,38 +104,51 @@ ceilometer alarm-threshold-create --name <NAME>
 
     * `--repeat-actions {True|False}`
 
-    当警报处于某个状态，是否多次执行action
+
 
 ### 示例 ##
 
 * 创建一个阈值报警
 
-当某个vm一次600周内运行时长大于360000时，发出报警。
+当某个vm运行时的cpu_util最大值超过５０％,时长180s,发出报警,警告已日志的形式通知,警告通知的文件为`alarm-notifier.log`
 
 ```
-# ceilometer alarm-threshold-create --name instance_time_long -m instance --period 600 --evaluation-period 1 --statistic max --comparison-operator gt --threshold 360000 --alarm-action log://
-+---------------------------+--------------------------------------------------------------+
-| Property                  | Value                                                        |
-+---------------------------+--------------------------------------------------------------+
-| alarm_actions             | [u'log://']                                                  |
-| alarm_id                  | c8c881cd-453c-45d7-9970-93b787f47e40                         |
-| comparison_operator       | gt                                                           |
-| description               | Alarm when instance is gt a max of 360000.0 over 600 seconds |
-| enabled                   | True                                                         |
-| evaluation_periods        | 1                                                            |
-| exclude_outliers          | False                                                        |
-| insufficient_data_actions | []                                                           |
-| meter_name                | instance                                                     |
-| name                      | instance_time_long                                           |
-| ok_actions                | []                                                           |
-| period                    | 600                                                          |
-| project_id                |                                                              |
-| query                     |                                                              |
-| repeat_actions            | False                                                        |
-| state                     | insufficient data                                            |
-| statistic                 | max                                                          |
-| threshold                 | 360000.0                                                     |
-| type                      | threshold                                                    |
-| user_id                   | 7e2fff4edbad42869051c5e631ca2600                             |
-+---------------------------+--------------------------------------------------------------+
+# ceilometer alarm-threshold-create --name cpu_high --description "Record about cpu_util value , when the value too high,the alarm is send log message" --alarm-action 'log://' --threshold 50 --period 180 --statistic max --comparison-operator gt -q resource_id=56beeaf4-e833-4787-8ce8-482ae14d87b5 -m cpu_util　--repeat-actions
++---------------------------+-------------------------------------------------------------------------+
+| Property                  | Value                                                                   |
++---------------------------+-------------------------------------------------------------------------+
+| alarm_actions             | [u'log:///tmp/alarm.log']                                               |
+| alarm_id                  | 11ccc804-0d8b-4a28-b98c-c87410eeaf86                                    |
+| comparison_operator       | gt                                                                      |
+| description               | Record about cpu_util value , when the value too high,the alarm is send |
+|                           | log message                                                             |
+| enabled                   | True                                                                    |
+| evaluation_periods        | 1                                                                       |
+| exclude_outliers          | False                                                                   |
+| insufficient_data_actions | []                                                                      |
+| meter_name                | cpu_util                                                                |
+| name                      | cpu_high                                                                |
+| ok_actions                | []                                                                      |
+| period                    | 180                                                                     |
+| project_id                |                                                                         |
+| query                     | resource_id == 56beeaf4-e833-4787-8ce8-482ae14d87b5                     |
+| repeat_actions            | False                                                                   |
+| state                     | insufficient data                                                       |
+| statistic                 | max                                                                     |
+| threshold                 | 50.0                                                                    |
+| type                      | threshold                                                               |
+| user_id                   | 3dbf0919d60d4025842e6ea149e4aeba                                        |
++---------------------------+-------------------------------------------------------------------------+
+
 ```
+
+alarm-action action 种类：
+
+* log：指定方式为`log://`，会在Ceilometer的日志文件中打印告警
+* http: 指定方式为`http://www.domainname.com/xyz`，会POST请求到该URL
+* https: 指定方式为`https://www.domainname.com/xyz`，会POST请求到该URL
+* test: 指定方式为`test://`，不要使用这种方式，仅作测试用途，对告警不会有任何效果
+* trust+http：指定方式为`trust+http://`，你需要进行额外设置才可以使用
+* trust+https：指定方式为`trust+https://`，你需要进行额外设置才可以使用
+
+备注：当警告触发后,警告未排除，会一直触发alarm-action动作

@@ -84,6 +84,7 @@
        * [FWaaS基本知识与部署](advance_admin/fwaas/file_name_should_be_unique.md)
        * [FWaaS使用例子](advance_admin/fwaas/fwaas_example.md)
        * [FWaaS和iptables规则之间的关系](advance_admin/fwaas/fwaas_iptables.md)
+       * [FWaaS 选择目标路由功能](advance_admin/fwaas/fwaas_select_target_routers.md)
    * [LBaaS](advance_admin/lbaas.md)
        * [LBaaS基本知识以及部署](advance_admin/lbaas/lbass_basic.md)
        * [LBaaS的简单使用](advance_admin/lbaas/lbaas_use.md)

@@ -102,6 +102,8 @@
        * [栈模板语法结构](advance_admin/heat_template/grammar.md)
        * [栈模板资源概述](advance_admin/heat_template/resource.md)
        * [可伸缩集群栈模板](advance_admin/heat_template/template_usage.md)
+   * [端口映射](advance_admin/portmapping.md)
+       * [端口映射功能介绍](advance_admin/portmapping/introduction.md)
 * [集群管理](cluster_admin/cluster_admin.md)
    * [高可用和负载均衡集群](cluster_admin/ha_and_lb/introduction.md)
        * [高可用集群](cluster_admin/ha_and_lb/high_availability.md)

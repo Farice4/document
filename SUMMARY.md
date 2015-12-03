@@ -70,7 +70,7 @@
        * [创建组合报警](basic_admin/ceilometer_manage/alarm_combination_create.md)
        * [删除报警](basic_admin/ceilometer_manage/alarm_delete.md)
        * [查看事件信息](basic_admin/ceilometer_manage/event_list.md)
-       * [查看事件特性信息](basic_admin/ceilometer_manage/event_special.md)
+       * [查看事件特征描述](basic_admin/ceilometer_manage/event_special.md)
        * [资源使用](basic_admin/ceilometer_manage/resource_count.md)
    * [编配系统管理](basic_admin/heat_management/heat_management.md)
        * [查看栈列表](basic_admin/heat_management/stack_list.md)

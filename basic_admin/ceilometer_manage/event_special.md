@@ -1,6 +1,6 @@
-# 查看事件特性信息
+# 查看事件特征描述
 
-> 列出事件类型特性信息
+> 列出事件类型特征信息
 
 `ceilometer trait-description-list -e "event type"`
 
@@ -19,7 +19,7 @@
 ```
 其包括"Trait Name" , "Data Type" ,在执行ceilometer trait-list 时会使用"Trait Name"
 
-> 列出特性事件信息
+> 列出特征事件信息
 
 `ceilometer trait-list -e "event type" -t "trait name"`
 

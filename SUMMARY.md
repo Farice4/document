@@ -91,6 +91,7 @@
    * [VPNaaS](advance_admin/vpnaas.md)
        * [VPNaaS基本知识即部署](advance_admin/vpnaas/vpnaas_basic.md)
        * [VPNaaS简单示例](advance_admin/vpnaas/vpnaas_use.md)
+       * [PPTP VPN 的使用](advance_admin/vpnaas/pptp.md)
    * [多外网子网时使用固定IP](advance_admin/ip.md)
        * [使用背景](advance_admin/ip/ip_basic.md)
        * [简单示例](advance_admin/ip/ip_use.md)

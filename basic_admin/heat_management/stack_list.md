@@ -13,19 +13,23 @@
 
 * 查看当前项目下栈列表，执行如下命令
 
-> ```heat stack-list```
+  > ```heat stack-list```
 
 * 查看所有项目下栈列表，执行如下命令
 
-> ```heat stack-list --global-tenant```
+  > ```heat stack-list --global-tenant```
 
 **注意**：/etc/heat/policy.json 中默认没有打开使用该选项的权限，打开方法见下文
 
-* 允许 admin 使用 --global-tenant 选项
+### 允许 admin 使用 --global-tenant 选项
 
-> ``` sed -i 's/"stacks:global_index": "deny_everybody",/"stacks:global_index": "is_admin:True",/' /etc/heat/policy.json``` (更改配置文件)
+* 更改配置文件
 
-> ``` systemctl restart openstack-heat-api ``` (重启 heat-api 服务)
+  > ``` sed -i 's/"stacks:global_index": "deny_everybody",/"stacks:global_index": "is_admin:True",/' /etc/heat/policy.json```
+
+* 重启 heat-api 服务
+
+  > ``` systemctl restart openstack-heat-api ```
 
 ### 示例如下：
 

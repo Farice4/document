@@ -12,7 +12,7 @@
 
 * 概况中显示了栈的名称、状态、输出以及栈参数等详细信息
 
-  名称、ID、状态以及栈输出等信息  
+  名称、ID、状态以及栈输出等信息
   栈输出是在栈模板中定义的反馈给用户的信息
 
   ![stack_detail](../Picture/stack_detail2.png)
@@ -36,32 +36,38 @@
 
 * 查看栈详情信息，执行如下命令
 
-> ``` heat stack-show <stack_name or stack_id>``` （显示名称为 stack_name 或 ID 为 stack_id 的栈详情）
+  显示名称为 stack_name 或 ID 为 stack_id 的栈详情
+  > ``` heat stack-show <stack_name or stack_id>```
 
 * 查看栈的资源列表
 
-> ``` heat resource-list <stack_name or stack_id>``` （显示名称为 stack_name 或 ID 为 stack_id 的资源列表）
+  显示名称为 stack_name 或 ID 为 stack_id 的资源列表
+  > ``` heat resource-list <stack_name or stack_id>```
 
 * 查看一个资源的详情
 
-> ``` heat  resource-show <stack_name or stack_id> <resource_name> ``` （显示资源名称为 resource_name 的详情）
+  显示资源名称为 resource_name 的详情
+  > ``` heat  resource-show <stack_name or stack_id> <resource_name> ```
 
+* 查看事件列表
 
-* 查看事件列表（资源名称，事件 ID 以及状态等信息）
-
-> ``` heat event-list <stack_name or stack_id>``` （显示名称为 stack_name 或 ID 为 stack_id 的事件列表）
+  显示名称为 stack_name 或 ID 为 stack_id 的事件列表，包括资源名称、事件 ID 以及状态等信息
+  > ``` heat event-list <stack_name or stack_id>```
 
 * 查看事件详情
 
-> ``` heat event-show <stack_name or stack_id> <resource_name> <event_id>``` （显示事件 ID 为 event_id 的事件详情）
+  显示事件 ID 为 event_id 的事件详情
+  > ``` heat event-show <stack_name or stack_id> <resource_name> <event_id>```
 
 * 查看栈输出列表
 
-> ``` heat output-list <stack_name or stack_id>``` （显示名称为 stack_name 或 ID 为 stack_id 的栈输出列表）
+  显示名称为 stack_name 或 ID 为 stack_id 的栈输出列表
+  > ``` heat output-list <stack_name or stack_id>```
 
 * 查看输出详情
 
-> ``` heat output-show <stack_name or stack_id> <output_name>``` （显示名称为 output_name 的输出的详细情况）
+  显示名称为 output_name 的输出的详细情况
+  > ``` heat output-show <stack_name or stack_id> <output_name>```
 
 ### 示例如下
 
@@ -161,7 +167,7 @@ the scale-up operation by doing an HTTP POST to this URL; no body nor extra head
 ```
 
 ```
-# heat  resource-show base_stack server_group 
+# heat  resource-show base_stack server_group
 +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | Property               | Value                                                                                                                                              |
 +------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+

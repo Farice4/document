@@ -17,13 +17,15 @@
 
 * 删除堆栈，执行如下命令
 
-> ```
-> heat stack-list (查看待删除堆栈名称与 ID)
-> ```
+  查看待删除堆栈名称与 ID
+  > ```
+  > heat stack-list
+  > ```
 
-> ```
-> heat stack-delete <stack_name or stack_id> (删除名称为 stack_name 或 ID 为 stack_id 的堆栈)
-> ```
+  删除名称为 stack_name 或 ID 为 stack_id 的堆栈
+  > ```
+  > heat stack-delete <stack_name or stack_id>
+  > ```
 
 ### 示例如下
 

@@ -7,7 +7,7 @@
 
 * 更新栈，执行如下命令
 
-> heat stack-update --template-file <template file>--environment-file <environment file> <stack name>
+  > heat stack-update --template-file <template file>--environment-file <environment file> <stack name>
 
 ### 示例如下
 

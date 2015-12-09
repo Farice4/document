@@ -24,9 +24,9 @@
 
 * 启动新的栈，执行如下命令
 
-> ```
-> heat stack-create --template-file <template file>--environment-file <environment file> <stack name>
-> ```
+  > ```
+  > heat stack-create --template-file <template file>--environment-file <environment file> <stack name>
+  > ```
 
 ### 示例如下
 

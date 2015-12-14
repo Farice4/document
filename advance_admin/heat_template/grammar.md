@@ -152,17 +152,16 @@ heat默认自定义了两个参数，分别为stack’s name 和identifier 它�
     项目的开发者通过为 heat
     编写插件的形式，自定义出来的限定类型。juno 版本已支持的自定义限定类型还很少，只有这几种：
 
-    | custom_constraint | Plugin Name |
-    |===================|=============|
-    | nova.flavor | heat.engine.resources.server:FlavorConstraint|
-    | nova.keypair | heat.engine.resources.nova_keypair:KeypairConstraint|
-    | iso_8601 | heat.engine.resources.iso_8601:ISO8601Constraint|
-    | neutron.network | heat.engine.clients.os.neutron:NetworkConstraint|
-    | neutron.port | heat.engine.clients.os.neutron:PortConstraint|
-    | neutron.router | heat.engine.clients.os.neutron:RouterConstraint|
-    | neutron.subnet | heat.engine.clients.os.neutron:SubnetConstraint|
-    | glance.image | heat.engine.clients.os.glance:ImageConstraint|
-|
+| custom_constraint | Plugin Name |
+|----|----|
+| nova.flavor | heat.engine.resources.server:FlavorConstraint|
+| nova.keypair | heat.engine.resources.nova_keypair:KeypairConstraint|
+| iso_8601 | heat.engine.resources.iso_8601:ISO8601Constraint|
+| neutron.network | heat.engine.clients.os.neutron:NetworkConstraint|
+| neutron.port | heat.engine.clients.os.neutron:PortConstraint|
+| neutron.router | heat.engine.clients.os.neutron:RouterConstraint|
+| neutron.subnet | heat.engine.clients.os.neutron:SubnetConstraint|
+| glance.image | heat.engine.clients.os.glance:ImageConstraint|
 
     格式:
 

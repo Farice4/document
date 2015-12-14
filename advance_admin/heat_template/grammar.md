@@ -148,7 +148,22 @@ heat默认自定义了两个参数，分别为stack’s name 和identifier 它�
         allowed_pattern: <regular expression>
 
 
-*   custom_constraint: 自定义限定类型, 通常用于检测相应资源是否真实存在. 自定义限定类型的定义在插件中实现，插件需要注册到heat engine. **插件的介绍, 待补充**
+*   custom_constraint: 自定义限定类型, 通常用于检测相应资源是否真实存在. 自定义限定类型并非指用户自定义，通常是指非 heat
+    项目的开发者通过为 heat
+    编写插件的形式，自定义出来的限定类型。juno 版本已支持的自定义限定类型还很少，只有这几种：
+
+    | custom_constraint | Plugin Name |
+    |===================|=============|
+    | nova.flavor | heat.engine.resources.server:FlavorConstraint|
+    | nova.keypair | heat.engine.resources.nova_keypair:KeypairConstraint|
+    | iso_8601 | heat.engine.resources.iso_8601:ISO8601Constraint|
+    | neutron.network | heat.engine.clients.os.neutron:NetworkConstraint|
+    | neutron.port | heat.engine.clients.os.neutron:PortConstraint|
+    | neutron.router | heat.engine.clients.os.neutron:RouterConstraint|
+    | neutron.subnet | heat.engine.clients.os.neutron:SubnetConstraint|
+    | glance.image | heat.engine.clients.os.glance:ImageConstraint|
+|
+
     格式:
 
         custom_constraint: <name>
@@ -170,11 +185,11 @@ heat默认自定义了两个参数，分别为stack’s name 和identifier 它�
         deletion_policy: <deletion policy>
 
 
-*   resource ID resource ID是资源的唯一标识，在一个Resource Section中必须唯一
-*   type 资源的类型, 如OS::Nova::Server.
-*   properties 资源属性所组成的列表， 每个属性可以硬编码的， 也可以通过Intrinsic Functions获得, 可省略
-*   metadata 特定资源类型所需的特定的属性， 一般用于一些高级功能， 提供update_policy,deletiong_policy一些必要的选项, 可省略
-*   depends_on 资源的依赖资源, 可省略
+*   resource ID: resource ID是资源的唯一标识，在一个Resource Section中必须唯一
+*   type: 资源的类型, 如OS::Nova::Server.
+*   properties: 资源属性所组成的列表， 每个属性可以硬编码的， 也可以通过Intrinsic Functions获得, 可省略
+*   metadata: 特定资源类型所需的特定的属性， 一般用于一些高级功能， 提供update_policy,deletiong_policy一些必要的选项, 可省略
+*   depends_on: 资源的依赖资源, 可省略
 *   update_policy: 以字典的形式定义此资源的更新策略, 具体的策略因资源类型不同而不同, 可省略
 *   deletion_policy: 定义此资源的删除策略(Delete, Retain或Snapshot), 具体的策略因资源类型不同而不同, 可省略
 

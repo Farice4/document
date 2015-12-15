@@ -6,6 +6,22 @@
 >
 >  influxdb/grafana 服务需要部署在一台安装了 CentOS 7 系统的独立的服务器（即以下示例中的“influxdb node”）上，关于该服务器的部署方法，请参考《EayunStack部署手册》v1.1 监控平台部署章节。
 
+## 命令格式
+
+```
+[fuel]# eayunstack fuel deployment_monitor_plugins --help
+usage: eayunstack fuel deployment_monitor_plugins [-h] --env ENV [--influxdb]
+                                                  [--lma_collector]
+
+Deploy fuel monitor plugins.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --env ENV        The fuel environment to be deployment.
+  --influxdb       Deployment influxdb node.
+  --lma_collector  Deployment lma_collector on openstack node.
+```
+
 ## 部署 influxdb/grafana 服务
 
 influxdb 数据库服务用于存放所有监控数据，grafana 为监控平台的 WEB UI。

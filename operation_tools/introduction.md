@@ -27,6 +27,11 @@ Commands:
     doctor              EayunStack Doctor
 ```
 
+>  **注意**
+>
+>  在不同角色的节点上执行该命令时可用的子命令不同，不可用的子命令会被隐藏。
+>  例如：在fuel节点上使用"--help"查看命令帮助信息时未显示"manage"子命令。
+
 ## 选项及子命令功能简介
 
 ### 选项
@@ -46,6 +51,7 @@ Commands:
    * Fuel节点备份
    * Fuel节点恢复
    * Ceph Cluster网络配置
+   * 监控平台部署
 * init
    * 初始化EayunStack环境
 * manage

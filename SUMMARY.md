@@ -144,6 +144,7 @@
        * [Fuel节点备份](operation_tools/fuel_management/fuel_backup.md)
        * [Fuel节点恢复](operation_tools/fuel_management/fuel_restore.md)
        * [配置Ceph Cluster网络](operation_tools/fuel_management/ceph_cluster_network_configuration.md)
+       * [部署监控平台](operation_tools/fuel_management/deploy_monitor_platform.md)
 * [监控平台](monitor_platform/introduction.md)
    * [监控对象](monitor_platform/monitor_object.md)
    * [平台架构](monitor_platform/monitor_platform_architecture.md)

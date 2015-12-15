@@ -54,7 +54,7 @@ sample，计量项采样。即某个时刻某个resource的某个meter值。
 
 * 带查询条件的查询
 
-查看某个vm在某个时间断的cpu，并返回1条结果。
+查看基于resource_id的虚拟机在某个时间段的cpu，并返回1条结果。
 
 ```
 # ceilometer sample-list -m cpu -q "resource_id=6e4c4a95-329e-4859-a622-9d8865364a0a;timestamp<2015-09-08T07:57:21;timestamp>2015-09-06T07:57:21" -l 1

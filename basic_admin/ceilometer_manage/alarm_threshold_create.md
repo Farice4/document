@@ -110,7 +110,7 @@ ceilometer alarm-threshold-create --name <NAME>
 
 * 创建一个阈值报警
 
-当某个vm运行时的cpu_util最大值超过５０％,时长180s,发出报警,警告已日志的形式通知,警告通知的文件为`alarm-notifier.log`
+当某个vm运行时的cpu_util最大值超过５０％,时长180s,发出报警,警告通过日志的形式通知,警告通知的文件为`alarm-notifier.log`
 
 ```
 # ceilometer alarm-threshold-create --name cpu_high --description "Record about cpu_util value , when the value too high,the alarm is send log message" --alarm-action 'log://' --threshold 50 --period 180 --statistic max --comparison-operator gt -q resource_id=56beeaf4-e833-4787-8ce8-482ae14d87b5 -m cpu_util　--repeat-actions

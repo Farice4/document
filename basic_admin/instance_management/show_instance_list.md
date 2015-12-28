@@ -3,7 +3,7 @@
 
 ### 通过Web horizon界面查看云主机
 
-通过登录horzion查看云主机信息，登录后选择项目----实例，显示实例
+通过登录horzion查看云主机信息，登录后选择项目----Compute----实例，显示实例
 
  ![instance_list](../Picture/instance_list.jpg)
 

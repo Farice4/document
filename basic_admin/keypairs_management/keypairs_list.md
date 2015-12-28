@@ -2,7 +2,7 @@
 
 ### 通过Web horizon查看密钥
 
-* 登录Web horizon登录，点击访问/安全，密钥对，显示密钥对
+* 登录Web horizon登录，点击访问&安全----密钥对----显示密钥对
 
 ![KeyPairs_List](../Picture/keypairs_list1.jpg)
 

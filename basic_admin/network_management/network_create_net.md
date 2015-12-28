@@ -4,7 +4,7 @@
 
 内部网络每个租户用户都能为自己项目创建一个单独的私有网络，内部网络的dhcp地址池中IP地址将在启动云主机时去获取，获取的IP地址在云主机中能够查看。在不绑定Floating IP时云主机可以访问外部Internet网络，但Internet网络不能访问到云主机
 
-* 使用租户用户登录Web horizon点击项目----Compute----网络---网络----创建网络
+* 使用租户用户登录Web horizon点击项目----网络---网络----创建网络
 
 ![Networkext_Create](../Picture/network_createnet1.jpg)
 

@@ -1,12 +1,12 @@
 # 给云主机分配floating ip
 
-### 通过Web horizon绑定Floating IP
+### 通过Web horizon绑定floating ip
 
 为云主机分配floating ip提供两种方式分配floating ip地址
 
 * 通过云主机绑定浮动ip地址
 
-点击绑定浮IP
+点击绑定浮动IP
 
 ![Floating_Assoclate](../Picture/floatingip_assoclate1.jpg)
 

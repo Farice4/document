@@ -2,7 +2,7 @@
 
 ### 通过Web horizon创建密钥
 
-* 登录Web horizon登录，点击访问/安全----密钥对----创建密钥对
+* 登录Web horizon登录，点击访问&安全----密钥对----创建密钥对
 
 ![KeyPairs_Create](../Picture/keypairs_create1.jpg)
 
@@ -10,7 +10,7 @@
 
 ![KeyPairs_Create](../Picture/keypairs_create2.jpg)
 
-* 创建的密钥对，第一次可以下载保存下来，用于后面进行ssh登录时使用。在创建新的云主机时可以访问&安全，值对可以选择创建的密钥对，注入到云主机中
+* 创建的密钥对，第一次可以下载保存下来，用于后面进行ssh登录时使用。在创建新的云主机时可以选择访问&安全----值对----选择创建的密钥对，注入到云主机中
 
 ![KeyPairs_Create](../Picture/keypairs_create3.jpg)
 

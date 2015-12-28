@@ -2,9 +2,9 @@
 
 floating ip 为云主机提供外部网络访问云主机通讯IP地址，为云主机绑定浮动IP地址后，外部网络可与云主机进行操作
 
-### 通过Web horizon查看当前Floating IP
+### 通过Web horizon查看当前floating ip
 
-* 登录Web horizon点击项目----compute-----访问&安全-----浮动IP可显示当前可用floating ip地址
+* 登录Web horizon点击项目----Compute-----访问&安全-----浮动IP可显示当前可用floating ip地址
 
 ![Floating_List](../Picture/floatingip_list1.jpg)
 

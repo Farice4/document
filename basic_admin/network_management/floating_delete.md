@@ -1,14 +1,14 @@
 # 删除floating ip
 
-删除floatin ip时，请遵循先对floating ip解除绑定，在进行删除操作
+删除floating ip时，请遵循先对floating ip解除绑定，在进行删除操作
 
-### 通过Web horizon删除Floating IP
+### 通过Web horizon删除floating ip
 
-* 登录Web horizon点击项目----compute-----访问&安全-----浮动IP---选择浮动IP列中的floating ip地址----释放浮动ip
+* 登录Web horizon点击项目----Compute-----访问&安全-----浮动IP---选择浮动IP列中的floating ip地址----释放浮动ip
 
 ![Floating_Delete1](../Picture/floatingip_delete1.jpg)
 
-* 浮动IP地址释放后，在floating IP地址中将删除浮动ip地址
+* 浮动IP地址释放后，在floating ip地址中将删除浮动ip地址
 
 ![Floating_Delete1](../Picture/floatingip_delete2.jpg)
 

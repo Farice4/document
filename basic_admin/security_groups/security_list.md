@@ -15,7 +15,7 @@
 
 * 查看安全组信息，执行如下命令
 
-> ```nova secgroup list```
+> ```nova secgroup-list```
 
 ### 示例
 

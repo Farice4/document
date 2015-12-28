@@ -1,8 +1,8 @@
 # 查看当前安全组
 
-### 通过Web horizon创查看安全组
+### 通过Web horizon查看安全组
 
-* 登录Web horizon界面，点击访问/安全，显示安全组信息。默认情况下只有一个安全组
+* 登录Web horizon界面，点击访问&安全，显示安全组信息。默认情况下只有一个安全组
 
 ![Security_List](../Picture/security_list1.jpg)
 

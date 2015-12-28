@@ -2,11 +2,11 @@
 
 ### 通过Web horizon删除密钥
 
-* 登录Web horizon登录，点击访问/安全----密钥对----选择密钥对---删除密钥对
+* 登录Web horizon登录，点击访问&安全----密钥对----选择密钥对---删除密钥对
 
 ![KeyPairs_Delete](../Picture/keypairs_delete1.jpg)
 
-* 删除完成后密钥对标签中，无删除密钥对，表示删除成功
+* 删除完成后密钥对标签中，无删除密钥对时，表示删除成功
 
 ![KeyPairs_Delete](../Picture/keypairs_delete2.jpg)
 

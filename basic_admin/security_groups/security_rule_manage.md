@@ -2,7 +2,7 @@
 
 ### 通过Web horizon安全组规则管理
 
-* 登录Web horizon登录，点击访问/安全，管理规则
+* 登录Web horizon登录，点击访问&安全，管理规则
 * 点击添加规则---配置规则---添加
 
 ![Security_Add](../Picture/securityrule_add1.jpg)

@@ -154,7 +154,7 @@
    * [部署方法](monitor_platform/deployment.md)
    * [使用方法](monitor_platform/usage.md)
 * [备份与恢复](backup_restore/intro.md)
-   * [Feul备份与恢复](backup_restore/fuel_backup_restore.md)
+   * [Fuel备份与恢复](backup_restore/fuel_backup_restore.md)
    * [OpenStack备份与恢复](backup_restore/openstack_backup_restore/openstack_backup.md)
        * [数据库备份与恢复](backup_restore/openstack_backup_restore/database_backup.md)
        * [配置文件备份与恢复](backup_restore/openstack_backup_restore/profile_backup.md)

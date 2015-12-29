@@ -10,11 +10,11 @@
 
 ![Volumes_Attach](../Picture/volumes_attach2.jpg)
 
-* 云硬盘连接过程处于attach状态
+* 云硬盘连接过程处于Attaching状态
 
 ![Volumes_Attach](../Picture/volumes_attach3.jpg)
 
-* 云硬盘完成挂载，状态变为In use
+* 云硬盘完成挂载，状态变为In-Use
 
 ![Volumes_Attach](../Picture/volumes_attach4.jpg)
 

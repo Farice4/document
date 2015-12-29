@@ -74,4 +74,4 @@
 ```
 
 > * 备份磁盘卷时确保openstack-cinder-backup服务处于启动状态
-> * 备份时卷状态必须在"available" 无云主机使用
+> * 备份时卷状态必须是"available" 无云主机使用

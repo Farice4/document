@@ -143,6 +143,7 @@
    * [环境管理命令](operation_tools/environment_management/environment_management.md)
        * [上传AMI镜像](operation_tools/environment_management/ami_image_upload.md)
        * [删除错误云硬盘](operation_tools/environment_management/delete_volume.md)
+       * [删除错误云主机](operation_tools/environment_management/delete_instance.md)
    * [Fuel节点管理命令](operation_tools/fuel_management/fuel_management.md)
        * [Fuel节点备份](operation_tools/fuel_management/fuel_backup.md)
        * [Fuel节点恢复](operation_tools/fuel_management/fuel_restore.md)

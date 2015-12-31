@@ -49,7 +49,7 @@
 |---|---|
 |message_id|消息ID|
 |event_type|事件类型|
-|generated|产生的时间撮|
+|generated|产生的时间戳|
 
 * 根据事件类型查询
 

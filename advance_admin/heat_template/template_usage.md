@@ -52,8 +52,7 @@ Heat 模板中已支持的资源类型汇总：[resource types][2]
                         key_name: {get_param: key}
                         networks: [{"network":{get_param: network}}]
 
-2.  ScalingPolicy 用来设定一个 ScalingGroup 伸缩的策略，包括是增还是减，以及每
-    次伸缩的跨度和伸缩的频度控制等。
+2.  ScalingPolicy 用来设定一个 ScalingGroup 伸缩的策略，包括是增还是减，以及每次伸缩的跨度和伸缩的频度控制等。
 
     以下为对上述示例资源 server_group 的两个伸缩策略，分别为增加与缩减。
 

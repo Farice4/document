@@ -8,7 +8,7 @@
 |列式存储|Hbase、Cassandra、Hypertable|按列存储数据，方便结构化非结构化存储，方便数据压缩，针对某一列或者某几列查询有发的I/O优势|
 |键值式存储|Redis、Tokyo Cabinet/okyoTyrant|通过键快速查询值，存储不管值的格式|
 |对象式存储|db4o、Versant|通过类似面向对象语言的语法操作数据库，通过对象方式存储数据|
-|图形市存储|Neo4J、FlockDB|图形关系的最佳存储方式，使用传统关系型数据库来解决性能低下|
+|图形式存储|Neo4J、FlockDB|图形关系的最佳存储方式，使用传统关系型数据库来解决性能低下|
 |XML式存储|Berkeley DB XML、BaseX|高效地存储XML数据、并支持XML内部查询语法、如XQuery、Xpath|
 
 ####MongoDB简介

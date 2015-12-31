@@ -207,7 +207,7 @@ ceilometer:PRIMARY>
 
 * 创建ceilometer 用户
 
-切换到ceilometer库后，添加cerilometer用户
+切换到ceilometer库后，添加ceilometer用户
 
 `ceilometer:PRIMARY>db.addUser('ceilometer','password');`
 

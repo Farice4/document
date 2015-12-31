@@ -1,5 +1,5 @@
 # FWaaS基本知识
-什么是FWaaS：防火墙即服务。openstack上的防火墙服务基本上是基于linux的iptables规则而来。
+什么是FWaaS：即防火墙服务。openstack上的防火墙服务基本上是基于linux的iptables规则而来。
 
 FWaaS有三个基本元素：firewall-rule,firewall-policy,firewall。
 firewall:对应防火墙，包含并只包含一个 firewall-policy，创建时即需要指定对应的 firewall-policy。
@@ -33,7 +33,7 @@ b.重启neutron-l3-agent服务，执行命令：
 systemctl restart neutron-l3-agent.service
 ```
 
-1.在controller节点上
+2.在controller节点上
 
 a.修改配置文件`/etc/neutron/neutron.conf` ，修改[DEFAULT]小节的service_plugins参数：
 ```

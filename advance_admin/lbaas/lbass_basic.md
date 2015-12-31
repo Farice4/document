@@ -17,6 +17,7 @@ healthmonitor:作为监听器，随时监听member和pool之间的连接的畅�
 # LBaaS的部署
 1.
 在network节点上
+
 a.修改`neutron-lbaas-agent`的配置文件`/etc/neutron/lbaas_agent.ini`，确认[DEFAULT]小节的配置如下：
 
 ```
@@ -29,6 +30,7 @@ b.启动/重启 neutron-lbaas-agent 服务
 
 2.
 在controller节点上
+
 a.修改`/etc/neutron/neutron.conf`文件，修改[DEFAULT]小节的service_plugins参数的值，如下:
 
 ```

@@ -133,7 +133,7 @@ Created a new qos_queue:
 
 
 3)
-创建过滤器针对，需要测试的流量过滤，测试TCP协议的5001端口，将iperf服务端作为目的地址，示例为：
+创建过滤器，针对需要测试的流量过滤，测试TCP协议的5001端口，将iperf服务端作为目的地址，示例为：
 ```
 neutron eayun-qos-filter-create --queue ba4fe297-89dd-48f1-9de0-c2ef6433f40c --protocol 6 --dst-port 5001 --dst-addr 172.168.200.27/22 36bbd6f7-0682-4bb5-a9a4-39978b78be6b 202
 Created a new qos_filter:

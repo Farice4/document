@@ -8,7 +8,7 @@
 
 1） 修改ceilometer配置文件，增加数据库连接节点配置
 * vim /etc/ceilometer/ceilometer.conf （每个安装ceilometer集群下的ceilometer 配置文件都要配置）
-* 在[database]标签下，修改connection= 如下：
+* 在[database]标签下，修改connection如下：
  ` connection=mongodb://ceilometer:password@172.16.101.11,172.16.101.12,172.16.101.9/ceilometer `
 
  配置参数说明：

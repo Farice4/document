@@ -47,7 +47,7 @@ osd 由于对应的是硬盘，用 ceph osd tree 来查找服务和服务名
 ```
 
 ### 检查集群状态
-登录任意一个 Ceph节点（monitor节点，osd节点，client节点）执行下名的命令查看整个集群的状态
+登录任意一个 Ceph节点（monitor节点，osd节点，client节点）执行下面的命令查看整个集群的状态
 ```bash
 [root@node-9 ~]# ceph -s
     cluster be2a0c73-4585-49c9-afdf-37f2c7a173d4

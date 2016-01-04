@@ -4,9 +4,9 @@
 
 |节点角色|检测组件|检测内容|
 |----|----|----|
-|controller|Keystone</br>Glance</br>Nova</br>Neutron</br>Cinder|配置文件正确性检测</br>服务运行状态检测</br>服务与数据库的连通性检测</br>服务可用性检测|
-|compute|Nova|配置文件正确性检测</br>服务运行状态检测|
-|mongo|Mongo|配置文件正确性检测</br>服务运行状态检测|
+|controller|Keystone<br />Glance<br />Nova<br />Neutron<br />Cinder|配置文件正确性检测<br />服务运行状态检测<br />服务与数据库的连通性检测<br />服务可用性检测|
+|compute|Nova|配置文件正确性检测<br />服务运行状态检测|
+|mongo|Mongo|配置文件正确性检测<br />服务运行状态检测|
 
 ## 命令格式
 

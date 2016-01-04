@@ -25,6 +25,7 @@ Commands:
     manage              EayunStack Management
     list                List OpenStack Node
     doctor              EayunStack Doctor
+    upgrade             Upgrade Management
 ```
 
 >  **注意**
@@ -57,6 +58,7 @@ Commands:
 * manage
    * 删除错误的Cinder卷
    * 上传AMI镜像
+   * 删除错误的云主机
 * list
    * 列出环境中所有OpenStack节点的信息
 * doctor
@@ -64,3 +66,5 @@ Commands:
    * 检测所有OpenStack节点OpenStack组件配置及服务运行状态
    * 检测MySQL/RabbitMQ/Ceph集群状态
    * 检测OpenStack网络（如virtual router检测）
+* upgrade
+   * 环境升级

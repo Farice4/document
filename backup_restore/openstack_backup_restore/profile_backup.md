@@ -4,15 +4,15 @@
 
 |组件|配置文件目录|节点|
 |----|----|----|
-|nova|/etc/nova|controller</br>compute|
+|nova|/etc/nova|controller<br />compute|
 |glance|/etc/glance|controller|
 |keystone|/etc/keystone|controller|
 |cinder|/etc/cinder|controller|
-|neutron|/etc/neutron|controller</br>compute|
-|ceilometer|/etc/ceilometer|controller</br>compute|
+|neutron|/etc/neutron|controller<br />compute|
+|ceilometer|/etc/ceilometer|controller<br />compute|
 |rabbitmq|/etc/rabbitmq|controller|
 |mysql|/etc/mysql|controller|
-|ceph|/etc/ceph|controller</br>compute</br>ceph-osd|
+|ceph|/etc/ceph|controller<br />compute<br />ceph-osd|
 
 ## 备份配置文件
 

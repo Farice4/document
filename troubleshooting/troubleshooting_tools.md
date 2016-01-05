@@ -4,7 +4,7 @@
 
 |命令|功能|检测对象|
 |----|----|----|
-|eayunstack doctor|检测EayunStack基本环境状态</br>检测各OpenStack节点各组件状态</br>检测各集群状态</br>|EayunStack环境|
+|eayunstack doctor|检测EayunStack基本环境状态<br />检测各OpenStack节点各组件状态<br />检测各集群状态<br />|EayunStack环境|
 |ping|检测网络连通性|网络|
 |tcpdump|网络流量截取分析|网络|
 |ntpq|查看NTP状态|NTP|

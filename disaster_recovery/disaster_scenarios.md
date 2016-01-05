@@ -57,7 +57,7 @@ N）
 
 ===
 
-#### 场景 No.：某些虚拟机无法连接外网
+#### 场景 No.2：某些虚拟机无法连接外网
 
 * 故障等级：
 
@@ -157,7 +157,7 @@ N）
 
 ===
 
-#### 场景 No.2：虚拟机无法通过DHCP方式获取IP地址
+#### 场景 No.3：虚拟机无法通过DHCP方式获取IP地址
 
 * 故障等级：
 
@@ -186,7 +186,7 @@ N）
 
 ===
 
-#### 场景 No.3：所有租户的所有虚拟机无法连接外网
+#### 场景 No.4：所有租户的所有虚拟机无法连接外网
 
 * 故障等级：
 
@@ -218,7 +218,7 @@ N）
 
 ===
 
-#### 场景 No.4：同一租户下两台虚拟机网络流量很高，导致所有租户的网络受到影响
+#### 场景 No.5：同一租户下两台虚拟机网络流量很高，导致所有租户的网络受到影响
 
 * 故障等级：
 
@@ -250,7 +250,7 @@ N）
 
 ===
 
-#### 场景 No.5：虚拟机限速时，在该虚拟机向外发包，其它租户的虚拟机的网络受到影响
+#### 场景 No.6：虚拟机限速时，在该虚拟机向外发包，其它租户的虚拟机的网络受到影响
 
 * 故障等级：
 
@@ -282,7 +282,7 @@ N）
 
 ===
 
-#### 场景 No.6(已测试通过)：DashBoard无法访问，监控系统发现大于或等于 N/2 台 Controller 节点宕机（N为Controller节点总数）
+#### 场景 No.7(已测试通过)：DashBoard无法访问，监控系统发现大于或等于 N/2 台 Controller 节点宕机（N为Controller节点总数）
 
 * 故障等级：
 
@@ -334,14 +334,14 @@ N）
      Clone Set: clone_p_neutron-lbaas-agent [p_neutron-lbaas-agent]
          Started: [ node-5.eayun.com node-6.eayun.com node-8.eayun.com ]
     ```
-    * 如有某些资源在某个节点处于 Stoped 状态，可使用```pcs resource ban 资源名 节点主机名```及```pcs resource clear 资源名 节点主机名```尝试启动该资源。
+    * 如有某些资源在某个节点处于 Stopped 状态，可使用```pcs resource ban 资源名 节点主机名```及```pcs resource clear 资源名 节点主机名```尝试启动该资源。
     * 如果某些资源在某个节点处于 unmanaged 状态，可登陆该节点，使用```pcs resource cleanup 资源名```尝试重新启动该资源。
 
 * 预计故障恢复时间
 
 ===
 
-#### 场景 No.7（已测试通过）：环境中多台云主机(boot from volume)宕机，监控系统发现 Compute 节点宕机
+#### 场景 No.8（已测试通过）：环境中多台云主机(boot from volume)宕机，监控系统发现 Compute 节点宕机
 
 * 故障等级：
 
@@ -374,7 +374,7 @@ N）
 
 ===
 
-#### No.8（已测试通过）：某些虚拟机出现磁盘I/O错误
+#### No.9（已测试通过）：某些虚拟机出现磁盘I/O错误
 
 * 故障等级：
 
@@ -435,7 +435,7 @@ N）
 
 ===
 
-#### 场景 No.9（已测试通过）：Ceilometer 服务不可用，报数据库连接错误。
+#### 场景 No.10（已测试通过）：Ceilometer 服务不可用，报数据库连接错误。
 
 * 故障等级：
 
@@ -499,7 +499,7 @@ AutoReconnect: could not connect to 172.16.101.11:27017: [Errno 113] EHOSTUNREAC
 
 ===
 
-#### 场景 No.10（已测试通过）：所有 OpenStack 节点NTP同步失败
+#### 场景 No.11（已测试通过）：所有 OpenStack 节点NTP同步失败
 
 * 故障等级：
 
@@ -527,7 +527,7 @@ AutoReconnect: could not connect to 172.16.101.11:27017: [Errno 113] EHOSTUNREAC
 
 * 预计故障恢复时间
 
-#### 场景 No.11（无经典场景，暂时保留）：MySQL 集群故障
+#### 场景 No.12（无经典场景，暂时保留）：MySQL 集群故障
 
 * 故障等级：
 
@@ -557,7 +557,7 @@ AutoReconnect: could not connect to 172.16.101.11:27017: [Errno 113] EHOSTUNREAC
 
 ===
 
-#### 场景 No.12（已测试通过）：RabbitMQ 集群故障
+#### 场景 No.13（已测试通过）：RabbitMQ 集群故障
 
 * 故障等级：
 

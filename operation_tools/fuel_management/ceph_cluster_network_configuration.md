@@ -41,3 +41,13 @@ id | status | name             | cluster | ip            | mac               | r
 ```
 [fuel]# eayunstack fuel ceph_cluster_network --env 1 --cidr 172.16.200.0/24 --nic_mappings 6:eth4,7:eth4,8:eth4
 ```
+
+* 配置ceph cluster网络使用网卡bonding
+
+  ```
+  [fuel]# eayunstack fuel ceph_cluster_network --env 1 --cidr 172.16.200.4/24 --nic_mappings 6:eth4+eth5,7:eth4+eth5,8:eth4+eth5 [--bond_mode active-backup/balance-slb/lacp-balance-tcp]
+  ```
+
+  说明：
+    * 以上例子表示几个节点同时将 eth4 和 eth5 网卡作为 bonding 负载 ceph cluster 网络
+    * bond_mode 有三种模式可选，默认为 active-backup

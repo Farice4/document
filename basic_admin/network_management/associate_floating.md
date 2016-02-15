@@ -28,6 +28,8 @@ IP地址从pool中分配到IP地址
 
 * 通过浮动IP关联方式分配浮动ip地址
 
+选择项目---访问&安全---浮动IP---选择列出的IP地址后面的关联按钮
+
 ![Floating_Assoclate](../Picture/floatingip_assoclate6.jpg)
 
 待连接的端口要选择，一个云主机作为端口进行连接

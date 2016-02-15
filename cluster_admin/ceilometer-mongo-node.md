@@ -9,6 +9,7 @@
 `yum install mongodb-server mongodb`
 
 * 配置节点mongodb.conf配置文件，根据现有节点配置文件修改，其中需要对bind_ip地址作出修改
+* 将mongodb.key文件拷贝过来放到配置文件中指定位置
 * 启动节点mongod服务
 
 `[root@node-9 ~](mongo)#systemctl start mongod`
@@ -17,7 +18,7 @@
 
 > 登录数据库主库
 
-`[root@node-9 ~](mongo)#mongo 172.16.101.9:27017/admin -u sa -p` 根据提示输入sa密码进入数据库
+`[root@node-9 ~](mongo)#mongo 172.16.101.9:27017/admin -u admin -p` 根据提示输入sa密码进入数据库
 
 > 添加新的节点
 
@@ -98,7 +99,7 @@ ceilometer:PRIMARY>
 * 节点登录测试
 
 ```
-[root@node-9 ~](mongo)#mongo 172.16.101.10:27017/admin -u sa -p
+[root@node-9 ~](mongo)#mongo 172.16.101.10:27017/admin -u admin -p
 MongoDB shell version: 2.6.11
 Enter password:
 connecting to: 172.16.101.10:27017/admin
@@ -249,3 +250,5 @@ ceilometer:PRIMARY>
 * 通过系统命令删除在数据库中已删除节点的数据文件及其它文件配置文件
 
 节点删除完成
+
+备注：在为ceilometer添加mongo复制集时需要调整ceilometer.conf中connection数据库连接项与每个节点下的astute.yaml文件，与服务重启，服务重启操作可以在数据库添加与删除完成后，重启ceilometer服务

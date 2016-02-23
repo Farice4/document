@@ -1,4 +1,4 @@
-<center><h1>EayunStack 1.0</br>Operation-Guide</h1></center>
+<center><h1>EayunStack 1.1</br>Operation-Guide</h1></center>
 <center><h4>黄敦荣</h4></center>
 <center>易云捷讯 云计算文档组</br>dunrong.huang@eayun.com</center>
 <center><h4>陈远斌</h4></center>

@@ -365,10 +365,9 @@ N）
     
   * 解决方法
  
-    * 执行命令```nova host-evacuate 宕机节点主机名```，将运行在宕机的 Compute 节点上的所有云主机迁移到其他节点
+    * 执行命令```nova host-evacuate 宕机节点主机名 --on-shared-storage```，将运行在宕机的 Compute 节点上的所有云主机迁移到其他节点
     * 确认所有虚拟机已迁移成功
 
-*** 备注： ***测试时boot-from-image类型的虚拟机迁移失败，原因为compute节点断电后ceph中存在关于该虚拟机的rbd client。该类型的虚拟机迁移成功的前提是在compute节点断电后约10分钟后，确认对应 rbd client消失后，执行迁移即可成功。该问题还需要讨论研究。
 
 * 预计故障恢复时间
 

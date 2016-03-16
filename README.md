@@ -20,4 +20,4 @@
 <center><h4>蔡杉</h4></center>
 <center>易云捷讯 云计算文档组</br>shan.cai@eayun.com</center>
 ### 法律通告
-Copyright eayun© 2015 | 易云捷讯科技（北京）有限公司 | 商业法律信息，请参考易云公司网站
+© 2011-2016 易云捷讯科技（北京）股份有限公司 | © 2011-2016 Eayun,Inc. All rights reserved | 商业法律信息，请参考易云公司网站

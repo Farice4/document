@@ -1,0 +1,21 @@
+### 针对对象发起多段上传任务
+#### 前提条件
+用户拥有易云云存储系统提供的 `access_key` 及 `secret_key` 并且该用户拥有目标桶的写入权限。
+
+#### 流程说明
+1. 初始化 `Client` 实例；
+2. 调用 `create_multipart_upload` 方法发起多段上传任务。
+
+#### 示例
+```
+# 初始化 Client 实例
+client = ...
+
+# 发起多段上传任务
+bucket_name = 'new-bucket'
+object_name = 'new-object'
+client.create_multipart_upload(
+    bucket: bucket_name,
+    key: object_name
+)
+```

@@ -32,7 +32,7 @@ global
 
   user  haproxy
 
-(controller)# crm resource restart p_haproxy
+(controller)# /usr/lib/ocf/resource.d/mirantis/ns_haproxy reload
 
 ...
 
@@ -143,7 +143,7 @@ node-7
 
 ```
 
-(controller)# pcs cluster stop
+(controller)# pcs cluster stop --all
 
 ```
 
@@ -227,7 +227,7 @@ node-7
 
 ```
 
-(controller)# openstack-service start
+(controller)# openstack-service start --all
 
 ```
 ### 确认环境中所有服务及集群状态，服务及集群状态恢复正常后确认数据库恢复是否成功

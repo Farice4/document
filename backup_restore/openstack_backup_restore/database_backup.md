@@ -1,7 +1,5 @@
 # 数据库备份与恢复
 
-需要备份的数据库包括keystone、glance、cinder、nova、neutron、ceilometer。
-
 ## 数据库备份
 
 ### 修改HAProxy配置

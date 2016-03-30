@@ -230,3 +230,4 @@ node-7
 (controller)# openstack-service start
 
 ```
+### 确认环境中所有服务及集群状态，服务及集群状态恢复正常后确认数据库恢复是否成功

@@ -91,7 +91,7 @@ node-7
 
 ```
 
-(node-7)# xtrabackup --backup --stream=tar ./ | gzip - > backup.tar.gz
+(node-7)# innobackupex --backup --stream=tar ./ | gzip - > backup.tar.gz
 
 ```
 
@@ -165,7 +165,7 @@ node-7
 
 ```
 
-(node-7)# tar -xvzf backup.tar.gz -C /var/lib/mysql/
+(node-7)# tar -xivzf backup.tar.gz -C /var/lib/mysql/
 
 (node-7)# chown -R mysql.mysql /var/lib/mysql
 

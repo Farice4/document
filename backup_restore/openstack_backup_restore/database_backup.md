@@ -91,7 +91,7 @@ node-7
 
 ```
 
-(node-7)# innobackupex --backup --stream=tar ./ | gzip - > backup.tar.gz
+(node-7)# innobackupex --stream=tar ./ | gzip - > backup.tar.gz
 
 ```
 

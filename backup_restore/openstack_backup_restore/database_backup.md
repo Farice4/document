@@ -217,7 +217,7 @@ node-7
 
 ```
 
-(controller)# pcs cluster start
+(controller)# pcs cluster start --all
 
 ```
 

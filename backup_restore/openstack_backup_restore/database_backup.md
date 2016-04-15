@@ -139,11 +139,11 @@ node-7
 
 ### 停止 Pacemaker 集群
 
-> 该操作可以在 **任意 Controller 节点** 执行
+> 该操作需要在 **所有 Controller 节点** 执行
 
 ```
 
-(controller)# pcs cluster stop --all
+(controller)# pcs cluster stop
 
 ```
 
@@ -213,11 +213,11 @@ node-7
 
 ### 启动 Pacemaker 集群
 
-> 该操作可以在 **任意 Controller 节点** 执行
+> 该操作需要在 **所有 Controller 节点** 执行
 
 ```
 
-(controller)# pcs cluster start --all
+(controller)# pcs cluster start
 
 ```
 

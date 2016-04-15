@@ -96,7 +96,7 @@ node-7
 
 ```
 
-### 将备份文件 **backup.tar.gz** 拷贝到备份服务器
+### 将备份文件 **backup.tar.gz** 及 **backup.tar.gz.md5** 拷贝到备份服务器
 
 ### 恢复MySQL同步机制
 
@@ -158,7 +158,7 @@ node-7
 
 ```
 
-### 将数据库备份文件 backup.tar.gz 及 backup.tar.gz.md5 拷贝到备份节点
+### 将数据库备份文件 **backup.tar.gz** 及 **backup.tar.gz.md5** 拷贝到备份节点
 
 ### 检查数据库备份文件的完整性
 

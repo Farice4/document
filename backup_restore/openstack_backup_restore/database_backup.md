@@ -171,23 +171,14 @@ node-7
 
 ```
 
-### 在所有 Controller 节点导出 mysql-wss 的环境变量
-
-> 该操作需要在 **所有 Controller 节点** 执行
-
-```
-
-(controller)# export OCF_RESOURCE_INSTANCE=p_mysql
-
-(controller)# export OCF_ROOT=/usr/lib/ocf
-
-(controller)# export OCF_RESKEY_socket=/var/run/mysqld/mysqld.sock
-
-```
-
 ### 在备份节点导出 mysql-wss 的环境变量
 
 ```
+(node-7)# export OCF_RESOURCE_INSTANCE=p_mysql
+
+(node-7)# export OCF_ROOT=/usr/lib/ocf
+
+(node-7)# export OCF_RESKEY_socket=/var/run/mysqld/mysqld.sock
 
 (node-7)# export OCF_RESKEY_additional_parameters="--wsrep-new-cluster"
 
@@ -206,6 +197,11 @@ node-7
 > 该操作需要在 **剩余所有 Controller 节点** 执行
 
 ```
+(controller)# export OCF_RESOURCE_INSTANCE=p_mysql
+
+(controller)# export OCF_ROOT=/usr/lib/ocf
+
+(controller)# export OCF_RESKEY_socket=/var/run/mysqld/mysqld.sock
 
 (controller)# /usr/lib/ocf/resource.d/mirantis/mysql-wss start
 

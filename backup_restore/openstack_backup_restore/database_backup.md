@@ -92,6 +92,7 @@ node-7
 ```
 
 (node-7)# innobackupex --stream=tar ./ | gzip - > backup.tar.gz
+(node-7)# md5sum backup.tar.gz > backup.tar.gz.md5
 
 ```
 
@@ -157,7 +158,18 @@ node-7
 
 ```
 
-### 将数据库备份文件 backup.tar.gz 拷贝到备份节点
+### 将数据库备份文件 backup.tar.gz 及 backup.tar.gz.md5 拷贝到备份节点
+
+### 检查数据库备份文件的完整性
+
+```
+(node-7)# md5sum backup.tar.gz
+4fbac699ce1cbbf33242621ea7e94afa   backup.tar.gz
+(node-7)# cat backup.tar.gz.md5
+4fbac699ce1cbbf33242621ea7e94afa   backup.tar.gz
+```
+
+> 两条命令输出结果相同，确认数据备份文件是完整的。
 
 ### 解压备份文件并修改文件归属
 

@@ -148,13 +148,14 @@ node-7
 
 ```
 
-### 备份 grastate.dat 文件
+### 备份数据库目录
 
 > 该操作需要在 **备份节点** (生成备份数据的节点)执行
 
 ```
 
-(node-7)# mv /var/lib/mysql/grastate.dat /var/lib/mysql/grastate.old
+(node-7)# mv /var/lib/mysql /var/lib/mysql.old
+(node-7)# mkdir /var/lib/mysql
 
 ```
 
@@ -171,13 +172,19 @@ node-7
 
 > 两条命令输出结果相同，确认数据备份文件是完整的。
 
-### 解压备份文件并修改文件归属
+### 恢复备份数据并修改文件归属
 
 > 该命令需要在 **备份节点** 执行
 
 ```
 
-(node-7)# tar -xivzf backup.tar.gz -C /var/lib/mysql/
+(node-7)# mkdir /root/backup_dir
+
+(node-7)# tar -xivzf backup.tar.gz -C /root/backup_dir
+
+(node-7)# innobackupex --apply-log /root/backup_dir
+
+(node-7)# innobackupex --copy-back /root/backup_dir
 
 (node-7)# chown -R mysql.mysql /var/lib/mysql
 
@@ -190,7 +197,7 @@ node-7
 
 (node-7)# export OCF_ROOT=/usr/lib/ocf
 
-(node-7)# export OCF_RESKEY_socket=/var/run/mysqld/mysqld.sock
+(node-7)# export OCF_RESKEY_socket=/var/lib/mysql/mysql.sock
 
 (node-7)# export OCF_RESKEY_additional_parameters="--wsrep-new-cluster"
 
@@ -204,6 +211,8 @@ node-7
 
 ```
 
+> 该命令需要在 **备份节点** 执行
+
 ### 在剩余 Controller 节点上启动 mysqld 服务
 
 > 该操作需要在 **剩余所有 Controller 节点** 执行
@@ -213,7 +222,7 @@ node-7
 
 (controller)# export OCF_ROOT=/usr/lib/ocf
 
-(controller)# export OCF_RESKEY_socket=/var/run/mysqld/mysqld.sock
+(controller)# export OCF_RESKEY_socket=/var/lib/mysql/mysql.sock
 
 (controller)# /usr/lib/ocf/resource.d/mirantis/mysql-wss start
 
@@ -229,6 +238,32 @@ node-7
 
 ```
 
+### 确保 rabbitmq 集群正常
+> 由于同时启动 Pacemaker 集群，rabbitmq 可能会出现脑裂现象
+> 需要进行干预，确保 rabbitmq 集群正常。
+
+
+> 下面示例中的命令在任一台 Controller 节点执行即可
+> 逐个禁止 rabbitmq 在除本节点之外的节点启动，然后逐个恢复
+> 最终确认所有节点的 rabbitmq 实例属于同一个集群
+
+```
+(controller)# pcs resource ban p_rabbitmq-server node-xxxxx
+
+...
+
+(controller)# pcs resource ban p_rabbitmq-server node-xxxxx
+
+(controller)# pcs resource
+p_rabbitmq-server 只有当前节点运行
+
+(controller)# pcs resource clear p_rabbitmq-server
+恢复 p_rabbitmq-server 在其它节点运行
+
+(controller)# rabbitmqctl cluster_status
+所有节点 rabbitmq 实例属于同一个集群
+```
+
 ### 启动所有 Controller 节点上的所有 OpenStack 服务
 
 > 该操作需要在 **所有 Controller 节点** 执行
@@ -239,3 +274,5 @@ node-7
 
 ```
 ### 确认环境中所有服务及集群状态，服务及集群状态恢复正常后确认数据库恢复是否成功
+
+### 根据需要清理备份节点上备份数据的解压目录 （ /root/backup_dir ）以及新建的数据库备份目录（ /var/lib/mysql.old ）

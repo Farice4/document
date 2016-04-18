@@ -56,8 +56,10 @@ optional arguments:
 * 下载升级用的puppet模块
 
 ```
-[root@fuel ~](fuel)# git clone https://github.com/eayunstack/eayunstack-upgrade.git
-[root@fuel ~](fuel)# cp -r eayunstack-upgrade/puppet/ /var/www/nailgun/eayunstack/
+[root@fuel ~](fuel)# wget http://xxx.xxx.xxx.xxx/xxx.tar.gz
+[root@fuel ~](fuel)# tar -czf xxx.tar.gz
+[root@fuel ~](fuel)# mv /var/www/nailgun/eayunstack/puppet{,.bak-`date +%Y%m%d%H%M%S`}
+[root@fuel ~](fuel)# cp -r xxx/puppet/ /var/www/nailgun/eayunstack/
 ```
 
 * 安装YUM源制作工具并制作YUM源

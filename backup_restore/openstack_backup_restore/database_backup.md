@@ -87,6 +87,15 @@ node-7
 (node-7)# mysql -e "SET GLOBAL wsrep_on=off;"
 ```
 
+### 压缩 keystone.token 表空间
+> 由于 keystone.token 表增长较快，导致表数据文件较大，可以在备份前压缩该表空间，以加快备份还原时间。
+
+```
+
+(node-7)# mysql -e "OPTIMIZE TABLE keystone.token;"
+```
+
+
 ### 备份数据库
 
 ```

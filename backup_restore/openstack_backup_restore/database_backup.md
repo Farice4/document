@@ -257,16 +257,16 @@ node-7
 > 最终确认所有节点的 rabbitmq 实例属于同一个集群
 
 ```
-(controller)# pcs resource ban p_rabbitmq-server node-xxxxx
+(controller)# pcs resource ban p_rabbitmq-server node-xxx.xxx.xxx
 
 ...
 
-(controller)# pcs resource ban p_rabbitmq-server node-xxxxx
+(controller)# pcs resource ban p_rabbitmq-server node-xxx.xxx.xxx
 
 (controller)# pcs resource
 p_rabbitmq-server 只有当前节点运行
 
-(controller)# pcs resource clear p_rabbitmq-server
+(controller)# pcs resource clear p_rabbitmq-server node-xxx.xxx.xxx
 恢复 p_rabbitmq-server 在其它节点运行
 
 (controller)# rabbitmqctl cluster_status

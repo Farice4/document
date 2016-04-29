@@ -2,6 +2,18 @@
 
 ## 数据库备份
 
+### 确认 MySQL 集群状态
+
+> 备份前需要确保 MySQL 集群里的所有节点处于 Started 状态
+
+```
+(controller)# pcs resource
+...
+ Clone Set: clone_p_mysql [p_mysql]
+     Started: [ node-1.xxx.xxx node-2.xxx.xxx node-3.xxx.xxx node-4.xxx.xxx node-5.xxx.xxx node-6.xxx.xxx node-7.xxx.xxx]
+...
+```
+
 ### 修改HAProxy配置
 
 > 该操作需要在 **所有 Controller 节点** 执行 

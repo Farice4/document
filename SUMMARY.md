@@ -325,6 +325,7 @@
        * [常用管理命令](cluster_admin/mongo-admin.md)
        * [监控添加mongodb集群配置](cluster_admin/ceilometer-mongo-admin.md)
        * [mongodb集群节点管理](cluster_admin/ceilometer-mongo-node.md)
+	    * [Fuel添加Mongo节点配置](cluster_admin/fuel-add-mongo.md)
 * [运维工具](operation_tools/introduction.md)
    * [简介](operation_tools/introduction.md)
    * [初始化命令](operation_tools/init/init.md)

@@ -149,3 +149,14 @@ pcs resource clear p_rabbitmq-server <节点名称>
 > ###### 注意
 > * pcs resource clear/ban 命令，一条命令只接受一个节点名称，多个节点须使用多条命令。
 > * 除非整个 rabbitmq 集群故障，否则不要重启所有 openstack 服务。
+
+PCS服务出现unmanage状态
+
+  通常执行pcs resource 后会出现服务处于unmanage状态，需要通过如下命令将unmanage状态进行恢复
+
+  ``` 
+  pcs resource cleanup resource_id
+  ``` 
+		
+  当执行以上命令后，再次执行`pcs resource`如果有需要进行ban的服务，需要按照上面的步骤进行服务重新启动
+

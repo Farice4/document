@@ -16,22 +16,24 @@ optional arguments:
                         Local File To Save Output Info
   -d, --debug           Log debug message or not
   -e EMAIL, --email EMAIL
-                        email address which send error log to
+                        email address which send error log to(use commas to
+                        separate multiple email address)
 
 Commands:
   COMMAND               DESCRIPTION
-    fuel                EayunStack Fuel Management
-    init                EayunStack Environment Initialization
+    upgrade             Upgrade Management
+    doctor              EayunStack Doctor
     manage              EayunStack Management
     list                List OpenStack Node
-    doctor              EayunStack Doctor
-    upgrade             Upgrade Management
+    init                EayunStack Environment Initialization
+    cleanup             EayunStack Cleanup Resources
+    fuel                EayunStack Fuel Management
 ```
 
 >  **注意**
 >
 >  在不同角色的节点上执行该命令时可用的子命令不同，不可用的子命令会被隐藏。
->  例如：在fuel节点上使用"--help"查看命令帮助信息时未显示"manage"子命令。
+>  例如：在fuel节点上使用"--help"查看命令帮助信息时未显示"manage"、"cleanup"子命令。
 
 ## 选项及子命令功能简介
 
@@ -51,10 +53,10 @@ Commands:
 * fuel
    * Fuel节点备份
    * Fuel节点恢复
-   * Ceph Cluster网络配置
    * 监控平台部署
 * init
    * 初始化EayunStack环境
+   * 升级环境中所有节点上的 tools
 * manage
    * 删除错误的Cinder卷
    * 上传AMI镜像
@@ -64,7 +66,9 @@ Commands:
 * doctor
    * 检测所有OpenStack节点基础环境状态
    * 检测所有OpenStack节点OpenStack组件配置及服务运行状态
-   * 检测MySQL/RabbitMQ/Ceph集群状态
+   * 检测MySQL/RabbitMQ/Ceph/Pacemaker/HAProxy集群状态
    * 检测OpenStack网络（如virtual router检测）
 * upgrade
    * 环境升级
+* cleanup
+   * 清理环境中无租户资源（涉及到资源清理，慎用！）

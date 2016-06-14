@@ -251,7 +251,6 @@ horzion 依托于 apache 运行, 服务名为 httpd.service
 ```
 
 #### ceilometer
-
 #####　服务管理
 | 服务/资源ID | 服务名/资源ID | 管理方式 | 运行节点|
 | ---- | ---- | ---- | ---- |

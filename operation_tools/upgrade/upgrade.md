@@ -1,229 +1,217 @@
 # 环境升级
 
-在EayunStack环境运行过程中，可能会出现需要对环境中的某个服务的配置或某个软件包进行升级，下面介绍下如何对环境进行升级。
+> **注意**
+>
+> 升级操作只能在**Fuel**节点进行
 
 > **注意**
-> 该操作只能在**Fuel**节点进行
+>
+> **升级前先备份一次数据库及所有节点配置文件**
 
-## 命令格式
+## 升级步骤
+
+升级分三步进行：升级环境准备、升级和升级验证
+
+### 升级环境准备
+
+* 备份本地已存在的升级源
 
 ```
-(fuel)# eayunstack upgrade --help
-usage: eayunstack upgrade [-h] COMMAND ...
-
-Upgrade Management
-
-optional arguments:
-  -h, --help  show this help message and exit
-
-Commands:
-  COMMAND     DESCRIPTION
-    go
-    setup
+(fuel)# mv /var/www/nailgun/eayunstack{,.bak}
 ```
 
-## 升级方法
+* 重新创建本地升级源目录
 
-升级过程分成两步：环境配置和环境升级。
 
-### 环境配置
+```
+(fuel)# mkdir /var/www/nailgun/eayunstack/
+```
+
+* 安装 s3cmd 命令
+
+> 后面步骤中需要使用该命令将公网升级源同步到本地，安装该命令时需要配置 CentOS7 及 EPEL7 YUM 源。
+
+```
+(fuel)# yum -y install s3cmd
+```
+
+* 确认 DNS 服务器能够解析升级源的域名
+
+> 具体域名向升级源维护者索取
+
+* 下载（或拷贝） s3cmd 命令访问 eos 升级源时使用的配置文件".s3cfg.eayundevops"到本地"/root/"目录
+
+> 向升级源维护者索取
+
+***
+
+> **注意**
+>
+> 以上操作只需在第一次环境升级前执行，环境再次升级时，以上操作不需要再次执行。
+
+* 将公网升级源同步到本地
+
+```
+(fuel)# s3cmd -c /root/.s3cfg.eayundevops --delete-removed sync \
+s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
+```
+
+
+### 升级
+
+> **注意：**
+>
+> 以下命令为命令示例，“--myip 10.20.0.2”中的 IP 地址**需要替换**为所升级环境的 Fuel 节点的 **PXE网络** IP 地址。
+
+* 确认当前环境运行正常
+
+> 执行以下命令确认没有任何**"WARN"**及**"ERROR"**级别的输出消息
+
+```
+(fuel)# eayunstack doctor all
+```
 
 * 配置RSYNC服务器及所有OpenStack节点的YUM源
 
-#### 命令格式
-
 ```
-(fuel)# eayunstack upgrade setup --help
-usage: eayunstack upgrade setup [-h] --myip MYIP
-
-optional arguments:
-  -h, --help   show this help message and exit
-  --myip MYIP  IP address of the fuel node
+(fuel)# eayunstack upgrade setup --myip 10.20.0.2
 ```
 
-#### 命令示例
+* 确认当前环境中没有正在运行的升级任务
 
 ```
-[root@fuel ~](fuel)# eayunstack upgrade setup --myip 10.20.0.2
+(fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
+[ INFO  ] (fuel) (fuel.domain.tld): No upgrade process is currently on the way.
 ```
 
-* 创建相关工作目录
+* 升级第一个 Controller 节点
 
 ```
-[root@fuel ~](fuel)# mkdir -p /var/www/nailgun/eayunstack/repo
+(fuel)# eayunstack upgrade go --myip 10.20.0.2
 ```
 
-* 下载升级用的puppet模块
+* 查看第一个 Controller 节点升级进度
 
 ```
-[root@fuel ~](fuel)# wget http://xxx.xxx.xxx.xxx/xxx.tar.gz
-[root@fuel ~](fuel)# tar -czf xxx.tar.gz
-[root@fuel ~](fuel)# mv /var/www/nailgun/eayunstack/puppet{,.bak-`date +%Y%m%d%H%M%S`}
-[root@fuel ~](fuel)# cp -r xxx/puppet/ /var/www/nailgun/eayunstack/
+(fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 3 is still running.
 ```
 
-* 安装YUM源制作工具并制作YUM源
-
->  **注意**
->
->  如需升级环境中的某些软件包，需要先将高版本软件包拷贝到```/var/www/nailgun/eayunstack/repo/```目录下再执行```createrepo```命令。
+升级任务仍在运行。
 
 ```
-[root@fuel ~](fuel)# yum -y install createrepo
-[root@fuel ~](fuel)# createrepo /var/www/nailgun/eayunstack/repo/
+(fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 3 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Events:
+    total: 35
+    success: 35
+    failure: 0
+[ INFO  ] (fuel) (fuel.domain.tld): Resources:
+    total: 99
+    changed: 35
+    failed: 0
+    restarted: 24
+    failed_to_restart: 0
+    scheduled: 0
+    skipped: 0
+    out_of_sync: 35
 ```
 
-### 环境升级
+升级任务成功完成。
 
-#### 命令格式
-
-```
-(fuel)# eayunstack upgrade go --help
-usage: eayunstack upgrade go [-h] --myip MYIP [--check-only]
-
-optional arguments:
-  -h, --help    show this help message and exit
-  --myip MYIP   IP address of the fuel node
-  --check-only  If specified, the program will only check the current progress
-                instead of start a new upgrade process.
-```
-
-#### 命令示例
-
-* 升级第一个Controller节点
+* 升级剩余所有 OpenStack 节点
 
 ```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2
+(fuel)# eayunstack upgrade go --myip 10.20.0.2
 ```
+
 
 * 查看升级进度
 
-```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 15 is still running.
-```
+> 通过类似以下输出确认所有节点升级成功完成。
 
 ```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 15 is finished.
+(fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 6 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
     total: 1
     success: 1
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
+    total: 16
     changed: 1
     failed: 0
-    restarted: 1
+    restarted: 0
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
     out_of_sync: 1
-```
-
->  通过以上信息可以确定第一个节点升级已经成功完成。继续升级剩余节点。
-
-* 升级剩余节点
-
-```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2
-```
-
-* 查看升级进度
-
-```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 12 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 14 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 13 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 10 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 11 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 8 is still running.
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 7 is still running.
-```
-
-```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 12 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 9 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
     total: 1
     success: 1
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
+    total: 15
     changed: 1
     failed: 0
-    restarted: 1
+    restarted: 0
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
     out_of_sync: 1
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 10 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 5 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
-    total: 1
-    success: 1
+    total: 11
+    success: 11
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
-    changed: 1
+    total: 33
+    changed: 11
     failed: 0
-    restarted: 1
+    restarted: 4
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
-    out_of_sync: 1
+    out_of_sync: 11
 [ INFO  ] (fuel) (fuel.domain.tld): Process on node 13 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
-    total: 1
-    success: 1
+    total: 3
+    success: 3
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
-    changed: 1
+    total: 15
+    changed: 3
     failed: 0
     restarted: 1
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
-    out_of_sync: 1
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 14 is finished.
+    out_of_sync: 3
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 4 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
-    total: 1
-    success: 1
+    total: 11
+    success: 11
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
-    changed: 1
+    total: 33
+    changed: 11
     failed: 0
-    restarted: 1
+    restarted: 4
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
-    out_of_sync: 1
-[ INFO  ] (fuel) (fuel.domain.tld): Process on node 11 is finished.
-[ INFO  ] (fuel) (fuel.domain.tld): Events:
-    total: 1
-    success: 1
-    failure: 0
-[ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
-    changed: 1
-    failed: 0
-    restarted: 1
-    failed_to_restart: 0
-    scheduled: 0
-    skipped: 0
-    out_of_sync: 1
+    out_of_sync: 11
 [ INFO  ] (fuel) (fuel.domain.tld): Process on node 8 is finished.
 [ INFO  ] (fuel) (fuel.domain.tld): Events:
     total: 1
     success: 1
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
+    total: 16
     changed: 1
     failed: 0
-    restarted: 1
+    restarted: 0
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
@@ -234,22 +222,78 @@ optional arguments:
     success: 1
     failure: 0
 [ INFO  ] (fuel) (fuel.domain.tld): Resources:
-    total: 10
+    total: 16
     changed: 1
+    failed: 0
+    restarted: 0
+    failed_to_restart: 0
+    scheduled: 0
+    skipped: 0
+    out_of_sync: 1
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 1 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Events:
+    total: 35
+    success: 35
+    failure: 0
+[ INFO  ] (fuel) (fuel.domain.tld): Resources:
+    total: 99
+    changed: 35
+    failed: 0
+    restarted: 24
+    failed_to_restart: 0
+    scheduled: 0
+    skipped: 0
+    out_of_sync: 35
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 12 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Events:
+    total: 3
+    success: 3
+    failure: 0
+[ INFO  ] (fuel) (fuel.domain.tld): Resources:
+    total: 15
+    changed: 3
     failed: 0
     restarted: 1
     failed_to_restart: 0
     scheduled: 0
     skipped: 0
-    out_of_sync: 1
+    out_of_sync: 3
+[ INFO  ] (fuel) (fuel.domain.tld): Process on node 2 is finished.
+[ INFO  ] (fuel) (fuel.domain.tld): Events:
+    total: 33
+    success: 33
+    failure: 0
+[ INFO  ] (fuel) (fuel.domain.tld): Resources:
+    total: 99
+    changed: 33
+    failed: 0
+    restarted: 26
+    failed_to_restart: 0
+    scheduled: 0
+    skipped: 0
+    out_of_sync: 33
 ```
 
+* 确认本次升级完成
+
 ```
-[root@fuel ~](fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
+(fuel)# eayunstack upgrade go --myip 10.20.0.2 --check-only
 [ INFO  ] (fuel) (fuel.domain.tld): No upgrade process is currently on the way.
 ```
 
->  从以上信息中可以确认剩余节点已经成功升级完成。
+* 备份所有 OpenStack 节点 "/var/log/puppet.log" 文件
+
+### 升级验证
+
+* 确认环境运行正常
+
+> 执行以下命令确认没有任何**"WARN"**及**"ERROR"**级别的输出消息
+
+```
+(fuel)# eayunstack doctor all
+```
+
+* 在环境中批量创建多个虚拟机，确认能够创建成功
 
 ## 关于升级失败
 

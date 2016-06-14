@@ -13,6 +13,7 @@
 * [cinder](#cinder)
 * [nova](#nova)
 * [neutron](#neutron)
+* [ceilometer](#ceilometer)
 
 #### keystone
 
@@ -248,3 +249,49 @@ horzion 依托于 apache 运行, 服务名为 httpd.service
 # systemctl stop httpd.service #关闭服务
 # systemctl restart httpd.service #重启服务
 ```
+
+#### ceilometer
+ceilometer 服务分为systemctl 与pcs管理,ceilometer还包括提供数据库的mongo服务
+#####　服务管理
+| 服务/资源ID | 服务名/资源ID | 管理方式 | 运行节点|
+| ---- | ---- | ---- | ---- |
+|ceilometer-alarm-notifier|openstack-ceilometer-alarm-notifier.service|systemctl|控制节点|
+|ceilometer-collector|openstack-ceilometer-collector.service|systemctl|控制节点|
+|ceilometer-agent-notification|openstack-ceilometer-notification.service|systemctl|控制节点|
+|ceilometer-api|httpd|systemctl|控制节点|
+|ceilometer-agent-central|p_openstack-ceilometer-central|pacemaker|控制节点|
+|ceilometer-alarm-evaluator|p_openstack-ceilometer-alarm-evaluator|pacemaker|控制节点|
+|ceilometer-agent-compute|openstack-ceilometer-compute.service|systemctl|计算节点|
+|mongod|mongod.service|systemctl|Mongo节点|
+
+使用 systemctl 管理的服务:
+```
+# systemctl start [服务名] #启动服务
+# systemctl stop [服务名] #关闭服务
+# systemctl restart [服务名] #重启服务
+```
+
+使用 pacemaker 管理的服务见: [EayunStack 基础服务集群中的常用操作](../cluster_admin/ha_and_lb/eayunstack_cluster_operations.md)
+
+举例查询一个内存使用查询:
+
+```
+[root@node-15 ~](controller)# ceilometer sample-list -m memory.usage -q "resource_id=ce9e8996-06ad-4833-a9d2-4fe382d1d42c" -l 10
++--------------------------------------+--------------+-------+---------------+------+---------------------+
+| Resource ID                          | Name         | Type  | Volume        | Unit | Timestamp           |
++--------------------------------------+--------------+-------+---------------+------+---------------------+
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2220993042 | %    | 2016-06-14T02:27:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2191429138 | %    | 2016-06-14T02:26:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2220993042 | %    | 2016-06-14T02:25:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2250556946 | %    | 2016-06-14T02:24:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2220993042 | %    | 2016-06-14T02:23:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2250556946 | %    | 2016-06-14T02:22:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2250556946 | %    | 2016-06-14T02:21:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.228012085  | %    | 2016-06-14T02:20:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2250556946 | %    | 2016-06-14T02:19:24 |
+| ce9e8996-06ad-4833-a9d2-4fe382d1d42c | memory.usage | gauge | 12.2220993042 | %    | 2016-06-14T02:18:24 |
++--------------------------------------+--------------+-------+---------------+------+---------------------+
+
+```
+
+注意：如果重启环境，要保证ceilometer使用的数据库Mongo节点必须在controller节点启动之前完成启动，Mongo节点为ceilometer提供数据库查询与数据存储服务.

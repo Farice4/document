@@ -254,7 +254,6 @@ horzion 依托于 apache 运行, 服务名为 httpd.service
 
 #####　服务管理
 ceilometer 服务分为systemctl 与pcs管理,ceilometer还包括提供数据库的mongo服务
-
 | 服务/资源ID | 服务名/资源ID | 管理方式 | 运行节点|
 | ---- | ---- | ---- | ---- |
 | ceilometer-alarm-notifier | openstack-ceilometer-alarm-notifier.service | systemctl | 控制节点 |

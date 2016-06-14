@@ -17,9 +17,6 @@ Commands:
   COMMAND               DESCRIPTION
     restore             Fuel Restore
     backup              Fuel Backup
-    ceph_cluster_network
-                        Configure ceph cluster network
     deployment_monitor_plugins
                         Deploy fuel monitor plugins.
-
 ```

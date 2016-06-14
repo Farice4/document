@@ -256,14 +256,14 @@ ceilometer 服务分为systemctl 与pcs管理,ceilometer还包括提供数据库
 
 | 服务/资源ID | 服务名/资源ID | 管理方式 | 运行节点|
 | ---- | ---- | ---- | ---- |
-|ceilometer-alarm-notifier|openstack-ceilometer-alarm-notifier.service|systemctl|控制节点|
-|ceilometer-collector|openstack-ceilometer-collector.service|systemctl|控制节点|
-|ceilometer-agent-notification|openstack-ceilometer-notification.service|systemctl|控制节点|
-|ceilometer-api|httpd|systemctl|控制节点|
-|ceilometer-agent-central|p_openstack-ceilometer-central|pacemaker|控制节点|
-|ceilometer-alarm-evaluator|p_openstack-ceilometer-alarm-evaluator|pacemaker|控制节点|
-|ceilometer-agent-compute|openstack-ceilometer-compute.service|systemctl|计算节点|
-|mongod|mongod.service|systemctl|Mongo节点|
+| ceilometer-alarm-notifier | openstack-ceilometer-alarm-notifier.service | systemctl | 控制节点 |
+| ceilometer-collector | openstack-ceilometer-collector.service | systemctl | 控制节点 |
+| ceilometer-agent-notification | openstack-ceilometer-notification.service | systemctl | 控制节点|
+| ceilometer-api | httpd | systemctl | 控制节点 |
+| ceilometer-agent-central | p_openstack-ceilometer-central | pacemaker | 控制节点 |
+| ceilometer-alarm-evaluator | p_openstack-ceilometer-alarm-evaluator | pacemaker | 控制节点 |
+| ceilometer-agent-compute | openstack-ceilometer-compute.service | systemctl | 计算节点 |
+| mongod | mongod.service | systemctl | Mongo节点 |
 
 使用 systemctl 管理的服务:
 ```

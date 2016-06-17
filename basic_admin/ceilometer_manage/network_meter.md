@@ -2,7 +2,8 @@
 Ceilometer 流量监控分为libvirt监控云主机内部网卡流量与neutron metering bandwidth采集经过路由的所有流量.本文主要讲解采用Neutron Metering Bandwidth 方式统计流量的配置与流量监控查询．
 
 ####　工作原理 ####
-Bandwidth 流量采集，启用neutron-metering-agent服务，配置两个路由标签(一个用于网络流入，一个用于网络流出)，每个标签对应租户的私有网络地址，租户的地址经过路由，被iptables统计流入与流出的流量，neutron-metering-agent根据一定的时间进行统计与发布采集数据，最终由ceilometer获取并存储进数据库．
+
+> Bandwidth 流量采集，启用neutron-metering-agent服务，配置两个路由标签(一个用于网络流入，一个用于网络流出)，每个标签对应租户的私有网络地址，租户的地址经过路由，被iptables统计流入与流出的流量，neutron-metering-agent根据一定的时间进行统计与发布采集数据，最终由ceilometer获取并存储进数据库．
 　　
 　　同一子网下虚拟机互相访问不会统计，但不同子网间进过虚拟路由器的流量会被统计，虚拟机与外部网络互访也会统计．
 

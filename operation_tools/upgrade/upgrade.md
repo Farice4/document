@@ -68,6 +68,8 @@ s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 * 确认当前环境运行正常
 
 > 执行以下命令确认没有任何**"WARN"**及**"ERROR"**级别的输出消息
+>
+> **注意：**如果环境中存在新增节点，关于新增节点网络检测相关的报错可以暂时忽略，待新增节点升级 EayunStack Tools 到最新版本后确认报错不再重现
 
 ```
 (fuel)# eayunstack doctor all
@@ -290,6 +292,8 @@ s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 * 确认环境运行正常
 
 > 执行以下命令确认没有任何**"WARN"**及**"ERROR"**级别的输出消息
+>
+> **注意：**如果环境中存在新增节点，关于新增节点网络检测相关的报错可以暂时忽略，待新增节点升级 EayunStack Tools 到最新版本后确认报错不再重现
 
 ```
 (fuel)# eayunstack doctor all

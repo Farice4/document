@@ -33,17 +33,11 @@ optional arguments:
 
 >###注意
 >
->该命令在Controller节点上运行，或者在fuel节点运行eayunstack doctor all,也会包含openstack网络检测。
+>该命令只在Controller节点上运行。
 
-## Fuel节点执行命令
+## vrouter检测
 
-```
-(fuel)# eayunstack doctor all
-[ INFO  ] (fuel) (fuel.domain.tld): +++++++++++++ Check OpenStack Network     +++++++++++++
-[ INFO  ] (fuel) (fuel.domain.tld): <== Push check cmd to node-17.eayun.com (controller) ==>
-```
-
-## Controller节点执行命令(所有vrouter相关的检测)
+* Controller节点执行命令(所有vrouter相关的检测)
 
 ```
 (controller)# eayunstack doctor net vrouter
@@ -60,7 +54,7 @@ optional arguments:
 
 ```
 
-## Controller节点执行命令（检测某个租户）
+* Controller节点执行命令（检测某个租户）
 
 ```
 (controller)# eayunstack --debug doctor net vrouter --tid 6be3afcf3fb94a5581288b36c95a38bc
@@ -77,7 +71,7 @@ optional arguments:
 
 ```
 
-## Controller节点执行命令（检测某个端口）
+* Controller节点执行命令（检测某个端口）
 
 ```
 (controller)# eayunstack --debug doctor net vrouter --pid 32c2f697-ab8d-4448-83c6-445792c364a8
@@ -90,7 +84,7 @@ optional arguments:
 
 ```
 
-## Controller节点执行命令（检测某个路由）
+* Controller节点执行命令（检测某个路由）
 
 ```
 (controller)# eayunstack --debug doctor net vrouter --rid 4230598e-30ec-484a-8bc2-a9d0c1bda085

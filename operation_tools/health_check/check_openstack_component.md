@@ -136,6 +136,22 @@ optional arguments:
 [ DEBUG ] (controller) (node-17.eayun.com): Check Sucessfully.
 [ DEBUG ] (controller) (node-17.eayun.com): -Service Availability
 [ DEBUG ] (controller) (node-17.eayun.com): Check Successfully.
+[ INFO  ] (controller) (node-17.eayun.com): Checking nova & cinder service list and neutron agent list
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com is not alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-17.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com is alive
+...
 [ DEBUG ] (controller) (node-18.eayun.com): =====> start running check_controller_profile 
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Keystone" Component
 [ DEBUG ] (controller) (node-18.eayun.com): Profile: /etc/keystone/keystone.conf
@@ -228,6 +244,22 @@ optional arguments:
 [ DEBUG ] (controller) (node-18.eayun.com): Check Sucessfully.
 [ DEBUG ] (controller) (node-18.eayun.com): -Service Availability
 [ DEBUG ] (controller) (node-18.eayun.com): Check Successfully.
+[ INFO  ] (controller) (node-18.eayun.com): Checking nova & cinder service list and neutron agent list
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com is not alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-18.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com is alive
+...
 [ DEBUG ] (controller) (node-15.eayun.com): =====> start running check_controller_profile 
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Keystone" Component
 [ DEBUG ] (controller) (node-15.eayun.com): Profile: /etc/keystone/keystone.conf
@@ -320,6 +352,22 @@ optional arguments:
 [ DEBUG ] (controller) (node-15.eayun.com): Check Sucessfully.
 [ DEBUG ] (controller) (node-15.eayun.com): -Service Availability
 [ DEBUG ] (controller) (node-15.eayun.com): Check Successfully.
+[ INFO  ] (controller) (node-15.eayun.com): Checking nova & cinder service list and neutron agent list
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com is not alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com is alive
+...
 ```
 
 * Controller节点执行命令
@@ -422,6 +470,22 @@ optional arguments:
 [ DEBUG ] (controller) (node-15.eayun.com): Check Sucessfully.
 [ DEBUG ] (controller) (node-15.eayun.com): -Service Availability
 [ DEBUG ] (controller) (node-15.eayun.com): Check Successfully.
+[ INFO  ] (controller) (node-15.eayun.com): Checking nova & cinder service list and neutron agent list
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com is not alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com is alive
+...
 ```
 
 ## Compute节点检测
@@ -567,6 +631,7 @@ optional arguments:
 > 以下示例中省略掉了部分Debug信息
 
 ```
+(controller)# eayunstack --debug doctor stack --service
 [ DEBUG ] (controller) (node-15.eayun.com): =====> start running check_controller_service 
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Keystone" Component
 [ DEBUG ] (controller) (node-15.eayun.com): -Service Status
@@ -638,6 +703,22 @@ optional arguments:
 [ DEBUG ] (controller) (node-15.eayun.com): Check Sucessfully.
 [ DEBUG ] (controller) (node-15.eayun.com): -Service Availability
 [ DEBUG ] (controller) (node-15.eayun.com): Check Successfully.
+[ INFO  ] (controller) (node-15.eayun.com): Checking nova & cinder service list and neutron agent list
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-lbaas-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metering-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-dhcp-agent on node-18.eayun.com is not alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-15.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-metadata-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-qos-agent on node-17.eayun.com is alive
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com admin_state_up is True
+[ DEBUG ] (controller) (node-15.eayun.com): Neutron agent neutron-l3-agent on node-17.eayun.com is alive
+...
 ```
 
 ## 检测所有检测对象
@@ -764,6 +845,7 @@ optional arguments:
 [ INFO  ] (controller) (node-17.eayun.com): Checking "Neutron" Component
 [ INFO  ] (controller) (node-17.eayun.com): Checking "Cinder" Component
 [ INFO  ] (controller) (node-17.eayun.com): Checking "Ceilometer" Component
+[ INFO  ] (controller) (node-17.eayun.com): Checking nova & cinder service list and neutron agent list
 [ ERROR ] (controller) (node-17.eayun.com): Service nova-compute on node-24.eayun.com state is down
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Keystone" Component
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Glance" Component
@@ -777,6 +859,7 @@ optional arguments:
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Neutron" Component
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Cinder" Component
 [ INFO  ] (controller) (node-18.eayun.com): Checking "Ceilometer" Component
+[ INFO  ] (controller) (node-18.eayun.com): Checking nova & cinder service list and neutron agent list
 [ ERROR ] (controller) (node-18.eayun.com): Service nova-compute on node-24.eayun.com state is down
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Keystone" Component
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Glance" Component
@@ -790,6 +873,7 @@ optional arguments:
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Neutron" Component
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Cinder" Component
 [ INFO  ] (controller) (node-15.eayun.com): Checking "Ceilometer" Component
+[ INFO  ] (controller) (node-15.eayun.com): Checking nova & cinder service list and neutron agent list
 [ INFO  ] (fuel) (fuel.domain.tld): <== Push check cmd to node-24.eayun.com (compute   ) ==>
 [ INFO  ] (fuel) (fuel.domain.tld): <== Push check cmd to node-14.eayun.com (compute   ) ==>
 [ INFO  ] (compute) (node-24.eayun.com): Checking "Nova" Component
@@ -800,4 +884,14 @@ optional arguments:
 [ INFO  ] (fuel) (fuel.domain.tld): <== Push check cmd to node-22.eayun.com (mongo     ) ==>
 [ INFO  ] (mongo) (node-22.eayun.com): Checking "Mongo" Component
 [ INFO  ] (mongo) (node-22.eayun.com): Checking "Mongo" Component
+[ INFO  ] (fuel) (fuel.domain.tld): +++++++++++++ Check OpenStack Network     +++++++++++++
+[ INFO  ] (fuel) (fuel.domain.tld): <== Push check cmd to node-17.eayun.com (controller) ==>
+[ INFO  ] (controller) (node-17.eayun.com): start checking route pdk_test(05d3d5a6-8f8a-4a47-beea-bd363ab29cbc)
+[ ERROR ] (controller) (node-17.eayun.com): can not get l3 host for router 05d3d5a6-8f8a-4a47-beea-bd363ab29cbc
+[ INFO  ] (controller) (node-17.eayun.com): finish checking route pdk_test(05d3d5a6-8f8a-4a47-beea-bd363ab29cbc)
+[ INFO  ] (controller) (node-17.eayun.com): start checking route eayun2-router(10666a45-ec39-44f3-ac67-546148b9cce2)
+[ ERROR ] (controller) (node-17.eayun.com): qos was not found on external interface qg-50540349-4f of qrouter-10666a45-ec39-44f3-ac67-546148b9cce2 on node-15.eayun.com
+[ INFO  ] (controller) (node-17.eayun.com): finish checking route eayun2-router(10666a45-ec39-44f3-ac67-546148b9cce2)
+[ INFO  ] (controller) (node-17.eayun.com): start checking route test_route(10f0af93-8a87-4573-8c8c-58f590ce5e42)
+[ WARNIN] (controller) (node-17.eayun.com): status of port network:router_gateway(3b460f9b-f9a2-4b66-9a12-e02f091d2872) on node-18.eayun.com is down
 ```

@@ -345,6 +345,7 @@
        * [Fuel节点备份](operation_tools/fuel_management/fuel_backup.md)
        * [Fuel节点恢复](operation_tools/fuel_management/fuel_restore.md)
        * [部署监控平台](operation_tools/fuel_management/deploy_monitor_platform.md)
+   * [监控服务](operation_tools/monitor_service.md)
 * [环境升级](operation_tools/upgrade/upgrade.md)
 * [监控平台](monitor_platform/introduction.md)
    * [监控对象](monitor_platform/monitor_object.md)

@@ -30,6 +30,12 @@ Interval=300
 (fuel)# systemctl start eayunstack-tools-monitor
 ```
 
+> ##### 注意
+>
+> 当服启动成功后，配置文件中 MailTo 邮箱中可以收到一封通知邮件，依此可以确认监控服务已经正常启动，并且可以正常发送报警邮件。
+>
+> 服务启动失败或启动成功但是邮箱中未收到通知邮件，可以查看 ```/var/log/eayunstack-tools-monitor.log``` 确认具体原因。
+
 ## 查看服务状态
 
 ```

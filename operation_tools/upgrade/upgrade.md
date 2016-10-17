@@ -58,6 +58,13 @@
 s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 ```
 
+* 清空所有 OpenStack 节点上的 YUM 源缓存
+
+> 注意：下面命令中的 ```n``` 需要根据具体环境中节点的数量进行替换
+
+```
+(fuel)# for i in `seq 1 n`;do ssh node-$i yum clean all;done
+```
 
 ### 升级
 

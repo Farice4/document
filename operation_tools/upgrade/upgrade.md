@@ -58,14 +58,6 @@
 s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 ```
 
-* 清空所有 OpenStack 节点上的 YUM 源缓存
-
-> 注意：下面命令中的 ```n``` 需要根据具体环境中节点的数量进行替换
-
-```
-(fuel)# for i in `seq 1 n`;do ssh node-$i yum clean all;done
-```
-
 ### 升级
 
 > **注意：**
@@ -86,6 +78,14 @@ s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 
 ```
 (fuel)# eayunstack upgrade setup --myip 10.20.0.2
+```
+
+* 清空所有 OpenStack 节点上的 YUM 源缓存
+
+> 注意：下面命令中的 ```n``` 需要根据具体环境中节点的数量进行替换
+
+```
+(fuel)# for i in `seq 1 n`;do ssh node-$i yum clean all;done
 ```
 
 * 确认当前环境中没有正在运行的升级任务

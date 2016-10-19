@@ -85,7 +85,7 @@ node-7
 ```
 > 确认命令执行成功
 >
-> 输出信息中包含 ```MAINT``` 时可以确认命令已经执行成功
+> 输出信息中包含 **MAINT** 时可以确认命令已经执行成功
 
 ```
 (controller)# echo 'show stat' | socat stdio /var/lib/haproxy/stats | grep 'mysqld,node-7'
@@ -180,7 +180,7 @@ mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,MAINT,1,0,1,0,1,227,227,,1,14,3,,0,,2,0
 ```
 > 确认命令执行成功
 >
-> 输出信息中包含 ```UP``` 时可以确认命令已经执行成功
+> 输出信息中包含 **UP** 时可以确认命令已经执行成功
 
 ```
 (controller)# echo 'show stat' | socat stdio /var/lib/haproxy/stats | grep 'mysqld,node-7'

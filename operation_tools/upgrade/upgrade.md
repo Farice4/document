@@ -65,7 +65,7 @@ nameserver 202.106.0.20
 * 将公网升级源同步到本地
 
 ```
-(fuel)# s3cmd -c /root/.s3cfg.eayundevops --delete-removed sync s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
+(fuel)# s3cmd -c /root/.s3cfg.eayundevops --no-preserve --delete-removed sync s3://eayunstack-upgrade/ /var/www/nailgun/eayunstack/
 ```
 
 > **注意：**

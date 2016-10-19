@@ -83,6 +83,13 @@ node-7
 (controller)# echo "disable server mysqld/node-7" | socat stdio /var/lib/haproxy/stats
 
 ```
+> 确认命令执行成功
+>
+> 输出信息中包含 ```MAINT``` 时可以确认命令已经执行成功
+```
+(controller)# echo 'show stat' | socat stdio /var/lib/haproxy/stats | grep 'mysqld,node-7'
+mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,MAINT,1,0,1,0,1,227,227,,1,14,3,,0,,2,0,,0,L7OK,200,15,,,,,,,0,,,,0,0,,,,,-1,,,0,0,0,0,
+```
 
 ### 将备份节点的 Pacemaker 设置为维护模式
 
@@ -92,11 +99,35 @@ node-7
 
 ```
 
+> 确认命令执行成功
+
+```
+(node-7)# crm node status
+<nodes>
+...
+    <instance_attributes id="nodes-7">
+      <nvpair id="nodes-7-maintenance" name="maintenance" value="on"/>
+    </instance_attributes>
+...
+</nodes>
+```
+
 ### 停止MySQL同步机制
 
 ```
 
 (node-7)# mysql -e "SET GLOBAL wsrep_on=off;"
+```
+
+> 确认命令执行成功
+
+```
+(node-7)# mysql -e "SHOW VARIABLES LIKE 'wsrep_on';"
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| wsrep_on      | OFF   |
++---------------+-------+
 ```
 
 ### 压缩 keystone.token 表空间

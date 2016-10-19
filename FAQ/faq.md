@@ -189,12 +189,12 @@ systemctl restart openstack-ceilometer-compute
 > 以下服务 ```disable``` 后，需要在所有 Controller 节点通过 ```ps``` 命令查看进程信息，确认没有服务对应的进程后，再做 ```enable``` 操作
 
 ```
-pcs resource disable neutron-l3-agent
-pcs resource disable neutron-openvswitch-agent
-pcs resource enable neutron-openvswitch-agent
-pcs resource enable neutron-l3-agent
-pcs resource disable neutron-lbaas-agent
-pcs resource enable neutron-lbaas-agent
+pcs resource disable p_neutron-l3-agent
+pcs resource disable p_neutron-openvswitch-agent
+pcs resource enable p_neutron-openvswitch-agent
+pcs resource enable p_neutron-l3-agent
+pcs resource disable p_neutron-lbaas-agent
+pcs resource enable p_neutron-lbaas-agent
 ```
 
 ```

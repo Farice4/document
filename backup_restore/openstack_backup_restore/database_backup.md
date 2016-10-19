@@ -158,6 +158,16 @@ mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,MAINT,1,0,1,0,1,227,227,,1,14,3,,0,,2,0
 (node-7)# mysql -e "SET GLOBAL wsrep_on=on;"
 
 ```
+> 确认命令执行成功
+
+```
+(node-7)# mysql -e "SHOW VARIABLES LIKE 'wsrep_on';"
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| wsrep_on      | ON    |
++---------------+-------+
+```
 
 ### 将MySQL服务设置为启用模式
 
@@ -168,6 +178,14 @@ mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,MAINT,1,0,1,0,1,227,227,,1,14,3,,0,,2,0
 (controller)# echo "enable server mysqld/node-7" | socat stdio /var/lib/haproxy/stats
 
 ```
+> 确认命令执行成功
+>
+> 输出信息中包含 ```UP``` 时可以确认命令已经执行成功
+
+```
+(controller)# echo 'show stat' | socat stdio /var/lib/haproxy/stats | grep 'mysqld,node-7'
+mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,UP,1,0,1,0,1,373,1214,,1,14,3,,0,,2,0,,0,L7OK,200,13,,,,,,,0,,,,0,0,,,,,-1,OK,,0,0,0,0,
+```
 
 ### 将备份节点的 Pacemaker 设置为就绪模式
 
@@ -175,6 +193,18 @@ mysqld,node-7,0,0,0,0,,0,0,0,,0,,0,0,0,0,MAINT,1,0,1,0,1,227,227,,1,14,3,,0,,2,0
 
 (node-7)# crm node ready
 
+```
+> 确认命令执行成功
+
+```
+(node-7)# crm node status
+<nodes>
+...
+    <instance_attributes id="nodes-7">
+      <nvpair id="nodes-7-maintenance" name="maintenance" value="off"/>
+    </instance_attributes>
+...
+</nodes>
 ```
 
 ***

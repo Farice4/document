@@ -58,6 +58,17 @@ nameserver 202.106.0.20
 
 > 向升级源维护者索取
 
+
+* 清除已经无效的 network namespace
+
+> 注意：
+>
+> 该操作需要在 **所有 Controller** 节点执行
+
+```
+(controller)# neutron-netns-cleanup
+```
+
 ***
 
 ### 升级

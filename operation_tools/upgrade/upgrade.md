@@ -69,6 +69,20 @@ nameserver 202.106.0.20
 (controller)# neutron-netns-cleanup
 ```
 
+* 设置命令行记录命令执行时间及实时保存命令历史
+
+将以下内容添加到 Fuel 及所有的 OpenStack 节点的 ```/etc/profile``` 文件中
+
+```
+HISTTIMEFORMAT="%F %T  "
+
+# append to history, don't overwrite it
+shopt -s histappend
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+```
+
 ***
 
 ### 升级

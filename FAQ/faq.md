@@ -3,6 +3,8 @@
 * [ 备份volume ](#备份volume)
 * [ 恢复volume ](#恢复volume)
 * [ 恢复rabbitmq集群 ](#恢复rabbitmq集群)
+* [ 配置 nova vnc console 支持 https (TODO)](#配置 nova vnc console 支持 https)
+* [ windows 虚拟机支持多核 CPU (TODO)](#windows 虚拟机支持多核 CPU)
 
 ## horzion上vnc加载失败
 * 用 eayunstack 运维工具检查 EayunStack 集群是否正常
@@ -220,3 +222,8 @@ systemctl restart neutron-openvswitch-agent
   ``` 
 		
   当执行以上命令后，再次执行`pcs resource`如果有需要进行ban的服务，需要按照上面的步骤进行服务重新启动
+
+## 配置 nova vnc console 支持 https
+
+
+## windows 虚拟机支持多核 CPU

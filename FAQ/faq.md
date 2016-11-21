@@ -5,6 +5,7 @@
 * [ 恢复rabbitmq集群 ](#恢复rabbitmq集群)
 * [ 配置 nova vnc console 支持 https (TODO)](#配置 nova vnc console 支持 https)
 * [ windows 虚拟机支持多核 CPU (TODO)](#windows 虚拟机支持多核 CPU)
+* [ openstack 数据库备份故障恢复 ](#openstack 数据库备份故障恢复)
 
 ## horzion上vnc加载失败
 * 用 eayunstack 运维工具检查 EayunStack 集群是否正常
@@ -227,3 +228,117 @@ systemctl restart neutron-openvswitch-agent
 
 
 ## windows 虚拟机支持多核 CPU
+
+## openstack 数据库备份故障恢复
+
+### 故障现象
+
+数据库备份过程中，进行 [数据库数据文件备份](backup_restore/openstack_backup_restore/database_backup.md#备份数据库) 的步骤，可能会长时间卡在如下位置无法完成备份：
+
+```
+>> log scanned up to (xxxxxxxxxx)
+```
+
+同时环境中 keystone api 的访问也出现异常，keystone 日志中出现如下信息：
+
+```
+(OperationalError) (2013, 'Lost connection to MySQL server during query')
+```
+
+查看数据库访问时会看有Waiting for commit lock 和 FLUSH TABLES WITH READ LOCK
+
+```
+$ mysql -e 'show full processlist'
++------+-------------+-----------+------+---------+-------+-------------------------+-----------------------------+----------+
+| Id   | User        | Host      | db   | Command | Time  | State                   | Info                        | Progress |
++------+-------------+-----------+------+---------+-------+-------------------------+-----------------------------+----------+
+|    1 | system user |           | NULL | Sleep   | 14072 | wsrep aborter idle      | NULL                        |    0.000 |
+|    2 | system user |           | NULL | Sleep   |  1027 | committed 12224277      | NULL                        |    0.000 |
+|    3 | system user |           | NULL | Sleep   |  1027 | committed 12224276      | NULL                        |    0.000 |
+|    4 | system user |           | NULL | Sleep   |  1027 | committed 12224275      | NULL                        |    0.000 |
+|    5 | system user |           | NULL | Sleep   |  1027 | Waiting for commit lock | NULL                        |    0.000 |
+| 3076 | root        | localhost | NULL | Sleep   |  1027 | NULL                    | FLUSH TABLES WITH READ LOCK |    0.000 |
+| 3078 | root        | localhost | NULL | Query   |     0 | NULL                    | show full processlist       |    0.000 |
++------+-------------+-----------+------+---------+-------+-------------------------+-----------------------------+----------+
+```
+
+### 故障解决方法
+
+#### 停止备份节点的数据库服务
+
+* 获取 HA 集群中数据库资源的配置参数
+
+> 手动操作 HA 数据库资源时，需要上述的 ```test_user``` 、 ```test_password``` 、```socket``` 属性。
+
+```
+# pcs resource show p_mysql
+ Resource: p_mysql (class=ocf provider=mirantis type=mysql-wss)
+  Attributes: test_user=wsrep_sst test_passwd=sTNX2iFv socket=/var/lib/mysql/mysql.sock 
+  Operations: monitor interval=120 timeout=115 (p_mysql-monitor-120)
+              start interval=0 timeout=475 (p_mysql-start-0)
+              stop interval=0 timeout=175 (p_mysql-stop-0)
+```
+
+* 设置环境变量
+
+> HA 数据库资源的所有属性都需要设置为环境变量
+
+```
+# export OCF_RESKEY_test_user=wsrep_sst
+# export OCF_RESKEY_test_passwd=sTNX2iFv
+# export OCF_RESKEY_socket=/var/lib/mysql/mysql.sock
+# export OCF_ROOT=/usr/lib/ocf
+```
+
+* 手动停止备份节点的数据库服务
+
+> 设置好上一步中的环境变量之后，在当前 shell 环境（因为需要刚才设置的环境变量，数据库服务的 HA agent 脚本才能顺利执行）
+
+```
+# /usr/lib/ocf/resource.d/mirantis/mysql-wss stop
+```
+
+> 等待上述命令正常完成
+
+#### 删除备份节点数据库数据目录
+
+> 不直接进行删除，需要保留备份以便出现新的问题时进行恢复尝试。 
+
+```
+# mv mysql mysql.`date +%y%m%d%H%M%S`
+# mkdir mysql
+# chown mysql:mysql mysql
+```
+
+#### 重新启动备份节点数据库服务
+
+* 确认当前 shell 环境仍然有之前设置的环境变量：
+
+```
+# env | grep OCF
+OCF_RESKEY_test_user=wsrep_sst
+OCF_RESKEY_test_passwd=sTNX2iFv
+OCF_RESKEY_socket=/var/lib/mysql/mysql.sock
+OCF_ROOT=/usr/lib/ocf
+```
+
+* 执行命令
+
+```
+# /usr/lib/ocf/resource.d/mirantis/mysql-wss start
+```
+
+> 等待上述命令正常完成后验证数据库服务
+
+```
+# mysql -e 'show variables like "wsrep_on";'
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| wsrep_on      | ON    |
++---------------+-------+
+```
+
+#### 继续进行其它操作
+
+[重新进行备份](backup_restore/openstack_backup_restore/database_backup.md#停止mysql同步机制) 或跳过备份，[对 Mysql 集群进行恢复](backup_restore/openstack_backup_restore/database_backup.md#恢复mysql同步机制)

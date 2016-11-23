@@ -341,7 +341,7 @@
        * [OpenStack组件检测](operation_tools/health_check/check_openstack_component.md)
        * [集群状态检测](operation_tools/health_check/check_cluster.md)
        * [EayunStack网络检测](operation_tools/health_check/check_net.md)
-       * [网络检测(TODO)](operation_tools/health_check/check_netmon.md)
+       * [网络检测](operation_tools/health_check/netmon.md)
    * [环境管理命令](operation_tools/environment_management/environment_management.md)
        * [上传AMI镜像](operation_tools/environment_management/ami_image_upload.md)
        * [删除错误云硬盘](operation_tools/environment_management/delete_volume.md)

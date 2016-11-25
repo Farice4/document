@@ -158,3 +158,89 @@ Associated health monitor 373850bd-9d36-41ac-b4c2-2843f14e6cf1
 
 ```
 
+5.
+负载均衡池的迁移
+
+在某些情况下可能需要对负载均衡池进行迁移
+
+执行`neutron lb-agent-hosting-pool`查看某个负载均衡池当前运行在哪个agent之上
+
+```
+# neutron help lb-agent-hosting-pool
+usage: neutron lb-agent-hosting-pool [-h] [-f {csv,html,json,table,yaml}]
+                                     [-c COLUMN] [--max-width <integer>]
+                                     [--quote {all,minimal,none,nonnumeric}]
+                                     [--request-format {json,xml}] [-D]
+                                     [-F FIELD]
+                                     pool
+
+Get loadbalancer agent hosting a pool. Deriving from ListCommand though server
+will return only one agent to keep common output format for all agent
+schedulers
+
+positional arguments:
+  pool                  Pool to query.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --request-format {json,xml}
+                        The XML or JSON request format.
+  -D, --show-details    Show detailed information.
+  -F FIELD, --field FIELD
+                        Specify the field(s) to be returned by server. You can
+                        repeat this option.
+
+output formatters:
+  output formatter options
+
+  -f {csv,html,json,table,yaml}, --format {csv,html,json,table,yaml}
+                        the output format, defaults to table
+  -c COLUMN, --column COLUMN
+                        specify the column(s) to include, can be repeated
+
+table formatter:
+  --max-width <integer>
+                        Maximum display width, 0 to disable
+
+CSV Formatter:
+  --quote {all,minimal,none,nonnumeric}
+                        when to include quotes, defaults to nonnumeric
+```
+
+执行`neutron lb-agent-pool-remove`将负载均衡池从某个agent中移除
+
+```
+# neutron help lb-agent-pool-remove
+usage: neutron lb-agent-pool-remove [-h] [--request-format {json,xml}]
+                                    lb_agent pool
+
+Remove a pool from a lbaas agent.
+
+positional arguments:
+  lb_agent              ID of the Lb agent.
+  pool                  Pool to remove.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --request-format {json,xml}
+                        The XML or JSON request format.
+```
+
+执行`neutron lb-agent-pool-add`将负载均衡池添加到某个agent之上
+
+```
+# neutron help lb-agent-pool-add
+usage: neutron lb-agent-pool-add [-h] [--request-format {json,xml}]
+                                 lb_agent pool
+
+Add a pool to a lbaas agent.
+
+positional arguments:
+  lb_agent              ID of the Lb agent.
+  pool                  Pool to add.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --request-format {json,xml}
+                        The XML or JSON request format.
+```

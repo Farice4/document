@@ -4,7 +4,7 @@
 * [ 恢复volume ](#恢复volume)
 * [ 恢复rabbitmq集群 ](#恢复rabbitmq集群)
 * [ 配置 nova vnc console 支持 https (TODO)](#配置 nova vnc console 支持 https)
-* [ windows 虚拟机支持多核 CPU (TODO)](#windows 虚拟机支持多核 CPU)
+* [ windows 虚拟机支持多核 CPU](#windows虚拟机支持多核CPU)
 * [ openstack 数据库备份故障恢复 ](#openstack 数据库备份故障恢复)
 
 ## horzion上vnc加载失败
@@ -227,7 +227,16 @@ systemctl restart neutron-openvswitch-agent
 ## 配置 nova vnc console 支持 https
 
 
-## windows 虚拟机支持多核 CPU
+## windows虚拟机支持多核CPU
+
+* 上传 Windows 镜像
+
+* 确认 Windows 镜像对应的操作系统版本支持的最大 CPU Socket 数量
+
+* 更新 Windows 镜像的元数据，定义该镜像支持的最大 CPU Socket 数量，例如 Windows Server 2008 R2 标准版，该版本支持的最大 CPU Socket 数量为4，镜像元数据更新命令如下：
+    ```
+    (controller)# glance image-update --property hw_cpu_max_sockets=4 IMAGE_UUID
+    ```
 
 ## openstack 数据库备份故障恢复
 

@@ -57,18 +57,23 @@ optional arguments:
 * Controller节点执行命令（检测某个租户）
 
 ```
-(controller)# eayunstack --debug doctor net vrouter --tid 6be3afcf3fb94a5581288b36c95a38bc
-[ INFO  ] (controller) (node-15.eayun.com): start checking route 彭大可[4230598e-30ec-484a-8bc2-a9d0c1bda085]
-[ DEBUG ] (controller) (node-15.eayun.com): start checking port [32c2f697-ab8d-4448-83c6-445792c364a8]
-[ DEBUG ] (controller) (node-15.eayun.com): check gateway for port on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): this port is external port, check external gateway
-[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.4.1 on node-15.eayun.com
+(controller)# eayunstack --debug doctor net vrouter --tid 33df23b90b72492cb1c87e3cf2184fa3
+[ INFO  ] (controller) (node-15.eayun.com): start checking route test_router(5e3d6344-2f60-4cca-beea-eec034dcab21)
+[ DEBUG ] (controller) (node-15.eayun.com): start checking port (54fa9336-841b-473e-bbb0-ab96f2ffd1e9)
+[ DEBUG ] (controller) (node-15.eayun.com): status of port 54fa9336-841b-473e-bbb0-ab96f2ffd1e9(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): admin_status of port 54fa9336-841b-473e-bbb0-ab96f2ffd1e9(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): this port(54fa9336-841b-473e-bbb0-ab96f2ffd1e9) is external port, check external gateway
+[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.0.1 on node-18.eayun.com
 [ DEBUG ] (controller) (node-15.eayun.com): external gateway is ok
-[ DEBUG ] (controller) (node-15.eayun.com): check external interface qg-32c2f697-ab qos on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): qos was found on external interface qg-32c2f697-ab of qrouter-4230598e-30ec-484a-8bc2-a9d0c1bda085 on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): finish checking port [32c2f697-ab8d-4448-83c6-445792c364a8]
-[ INFO  ] (controller) (node-15.eayun.com): finish checking route 彭大可[4230598e-30ec-484a-8bc2-a9d0c1bda085]
-
+[ DEBUG ] (controller) (node-15.eayun.com): check external interface qg-54fa9336-84 qos on node-18.eayun.com
+[ DEBUG ] (controller) (node-15.eayun.com): qos was found on external interface qg-54fa9336-84 of qrouter-5e3d6344-2f60-4cca-beea-eec034dcab21 on node-18.eayun.com
+[ DEBUG ] (controller) (node-15.eayun.com): finish checking port (54fa9336-841b-473e-bbb0-ab96f2ffd1e9)
+[ DEBUG ] (controller) (node-15.eayun.com): start checking port (8261387e-7188-4042-9319-72e4b22b6801)
+[ DEBUG ] (controller) (node-15.eayun.com): status of port 8261387e-7188-4042-9319-72e4b22b6801(network:router_interface) is up
+[ DEBUG ] (controller) (node-15.eayun.com): admin_status of port 8261387e-7188-4042-9319-72e4b22b6801(network:router_interface) is up
+[ DEBUG ] (controller) (node-15.eayun.com): this port(8261387e-7188-4042-9319-72e4b22b6801) is network:router_interface port, do not need to check gateway
+[ DEBUG ] (controller) (node-15.eayun.com): finish checking port (8261387e-7188-4042-9319-72e4b22b6801)
+[ INFO  ] (controller) (node-15.eayun.com): finish checking route test_router(5e3d6344-2f60-4cca-beea-eec034dcab21)
 ```
 
 * Controller节点执行命令（检测某个端口）

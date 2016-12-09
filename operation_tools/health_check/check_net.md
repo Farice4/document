@@ -40,18 +40,12 @@ optional arguments:
 * Controller节点执行命令(所有vrouter相关的检测)
 
 ```
-(controller)# eayunstack doctor net vrouter
-[ INFO  ] (controller) (node-15.eayun.com): start checking route wx-route[0f9ff230-b3d6-4382-9e5f-58a388f5818d]
-[ ERROR ] (controller) (node-15.eayun.com): qos was not found on external interface qg-edb5aafb-43 of qrouter-0f9ff230-b3d6-4382-9e5f-58a388f5818d on node-15.eayun.com
-[ INFO  ] (controller) (node-15.eayun.com): finish checking route wx-route[0f9ff230-b3d6-4382-9e5f-58a388f5818d]
-[ INFO  ] (controller) (node-15.eayun.com): start checking route eayun2-router[10666a45-ec39-44f3-ac67-546148b9cce2]
-[ ERROR ] (controller) (node-15.eayun.com): qos was not found on external interface qg-50540349-4f of qrouter-10666a45-ec39-44f3-ac67-546148b9cce2 on node-15.eayun.com
-[ INFO  ] (controller) (node-15.eayun.com): finish checking route eayun2-router[10666a45-ec39-44f3-ac67-546148b9cce2]
-[ INFO  ] (controller) (node-15.eayun.com): start checking route test_route[10f0af93-8a87-4573-8c8c-58f590ce5e42]
-[ ERROR ] (controller) (node-15.eayun.com): qos was not found on external interface qg-3b460f9b-f9 of qrouter-10f0af93-8a87-4573-8c8c-58f590ce5e42 on node-15.eayun.com
-[ INFO  ] (controller) (node-15.eayun.com): finish checking route test_route[10f0af93-8a87-4573-8c8c-58f590ce5e42]
-[ INFO  ] (controller) (node-15.eayun.com): start checking route rally_router[169e460d-16ff-4c25-bd2a-47250772541c]
-
+[ INFO  ] (controller) (node-15.eayun.com): start checking route eayun2-router(10666a45-ec39-44f3-ac67-546148b9cce2)
+[ INFO  ] (controller) (node-15.eayun.com): finish checking route eayun2-router(10666a45-ec39-44f3-ac67-546148b9cce2)
+[ INFO  ] (controller) (node-15.eayun.com): start checking route rally_router(169e460d-16ff-4c25-bd2a-47250772541c)
+[ INFO  ] (controller) (node-15.eayun.com): finish checking route rally_router(169e460d-16ff-4c25-bd2a-47250772541c)
+[ INFO  ] (controller) (node-15.eayun.com): start checking route zk(17448d6a-6501-47aa-af37-b217c02d0e13)
+[ INFO  ] (controller) (node-15.eayun.com): finish checking route zk(17448d6a-6501-47aa-af37-b217c02d0e13)
 ```
 
 * Controller节点执行命令（检测某个租户）

@@ -80,13 +80,12 @@ optional arguments:
 
 ```
 (controller)# eayunstack --debug doctor net vrouter --pid 32c2f697-ab8d-4448-83c6-445792c364a8
-[ DEBUG ] (controller) (node-15.eayun.com): check gateway for port on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): this port is external port, check external gateway
-[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.4.1 on node-15.eayun.com
+[ DEBUG ] (controller) (node-15.eayun.com): status of port 32c2f697-ab8d-4448-83c6-445792c364a8(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): admin_status of port 32c2f697-ab8d-4448-83c6-445792c364a8(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): this port(32c2f697-ab8d-4448-83c6-445792c364a8) is external port, check external gateway
+[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.4.1 on node-18.eayun.com
 [ DEBUG ] (controller) (node-15.eayun.com): external gateway is ok
-[ DEBUG ] (controller) (node-15.eayun.com): check external interface qg-32c2f697-ab qos on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): qos was found on external interface qg-32c2f697-ab of qrouter-4230598e-30ec-484a-8bc2-a9d0c1bda085 on node-15.eayun.com
-
+[ INFO  ] (controller) (node-15.eayun.com): there is no subnet attach to router 4230598e-30ec-484a-8bc2-a9d0c1bda085,skip qos check.
 ```
 
 * Controller节点执行命令（检测某个路由）

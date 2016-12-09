@@ -87,15 +87,21 @@ optional arguments:
 * Controller节点执行命令（检测某个路由）
 
 ```
-(controller)# eayunstack --debug doctor net vrouter --rid 4230598e-30ec-484a-8bc2-a9d0c1bda085
-[ DEBUG ] (controller) (node-15.eayun.com): start checking port [32c2f697-ab8d-4448-83c6-445792c364a8]
-[ DEBUG ] (controller) (node-15.eayun.com): check gateway for port on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): this port is external port, check external gateway
-[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.4.1 on node-15.eayun.com
+(controller)# eayunstack --debug doctor net vrouter --rid e0df8a0d-4856-4ce9-b4e3-a193ec6f6a46
+[ DEBUG ] (controller) (node-15.eayun.com): start checking port (7d4edcf4-1e52-4dbd-b397-bb1250663447)
+[ DEBUG ] (controller) (node-15.eayun.com): status of port 7d4edcf4-1e52-4dbd-b397-bb1250663447(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): admin_status of port 7d4edcf4-1e52-4dbd-b397-bb1250663447(network:router_gateway) is up
+[ DEBUG ] (controller) (node-15.eayun.com): this port(7d4edcf4-1e52-4dbd-b397-bb1250663447) is external port, check external gateway
+[ DEBUG ] (controller) (node-15.eayun.com): check external gateway 25.0.4.1 on node-18.eayun.com
 [ DEBUG ] (controller) (node-15.eayun.com): external gateway is ok
-[ DEBUG ] (controller) (node-15.eayun.com): check external interface qg-32c2f697-ab qos on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): qos was found on external interface qg-32c2f697-ab of qrouter-4230598e-30ec-484a-8bc2-a9d0c1bda085 on node-15.eayun.com
-[ DEBUG ] (controller) (node-15.eayun.com): finish checking port [32c2f697-ab8d-4448-83c6-445792c364a8]
+[ DEBUG ] (controller) (node-15.eayun.com): check external interface qg-7d4edcf4-1e qos on node-18.eayun.com
+[ DEBUG ] (controller) (node-15.eayun.com): qos was found on external interface qg-7d4edcf4-1e of qrouter-e0df8a0d-4856-4ce9-b4e3-a193ec6f6a46 on node-18.eayun.com
+[ DEBUG ] (controller) (node-15.eayun.com): finish checking port (7d4edcf4-1e52-4dbd-b397-bb1250663447)
+[ DEBUG ] (controller) (node-15.eayun.com): start checking port (ed5e4596-e7c7-4dda-8b4e-fa9437407ecd)
+[ DEBUG ] (controller) (node-15.eayun.com): status of port ed5e4596-e7c7-4dda-8b4e-fa9437407ecd(network:router_interface) is up
+[ DEBUG ] (controller) (node-15.eayun.com): admin_status of port ed5e4596-e7c7-4dda-8b4e-fa9437407ecd(network:router_interface) is up
+[ DEBUG ] (controller) (node-15.eayun.com): this port(ed5e4596-e7c7-4dda-8b4e-fa9437407ecd) is network:router_interface port, do not need to check gateway
+[ DEBUG ] (controller) (node-15.eayun.com): finish checking port (ed5e4596-e7c7-4dda-8b4e-fa9437407ecd)
 
 ```
 

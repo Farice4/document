@@ -236,6 +236,7 @@ optional arguments:
 ```
 (controller)# eayunstack doctor cls -n haproxyresource
 [ INFO  ] (controller) (node-15.eayun.com): =====> Checking HAProxy resource status
+[ INFO  ] (controller) (node-15.eayun.com): Haproxyresource cluster check successfully!
 [root@node-15 ~](controller)# eayunstack --debug doctor cls -n haproxyresource
 [ INFO  ] (controller) (node-15.eayun.com): =====> Checking HAProxy resource status
 [ DEBUG ] (controller) (node-15.eayun.com): Stats on FRONTEND status is OPEN.
@@ -325,6 +326,7 @@ optional arguments:
 [ DEBUG ] (controller) (node-15.eayun.com): nova-novncproxy on node-17 status is UP, check_status is L4OK.
 [ DEBUG ] (controller) (node-15.eayun.com): nova-novncproxy on node-18 status is UP, check_status is L4OK.
 [ DEBUG ] (controller) (node-15.eayun.com): nova-novncproxy on BACKEND status is UP.
+[ INFO  ] (controller) (node-15.eayun.com): Haproxyresource cluster check successfully!
 ```
 
 ## 检测所有检测对象

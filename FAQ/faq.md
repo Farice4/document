@@ -3,7 +3,7 @@
 * [ 备份volume ](#备份volume)
 * [ 恢复volume ](#恢复volume)
 * [ 恢复rabbitmq集群 ](#恢复rabbitmq集群)
-* [ 配置 nova vnc console 支持 https (TODO)](#配置 nova vnc console 支持 https)
+* [ 配置 nova vnc console 支持 https](#配置 nova vnc console 支持 https)
 * [ windows 虚拟机支持多核 CPU](#windows虚拟机支持多核CPU)
 * [ openstack 数据库备份故障恢复 ](#openstack 数据库备份故障恢复)
 

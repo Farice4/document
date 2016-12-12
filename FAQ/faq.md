@@ -211,17 +211,17 @@ systemctl restart neutron-openvswitch-agent
 ```
 
 > ###### 注意
-> 
+>
 > * 除非整个 rabbitmq 集群故障，否则不要重启所有 openstack 服务。
 
 ### PCS服务出现unmanage状态
 
   通常执行pcs resource 后会出现服务处于unmanage状态，需要通过如下命令将unmanage状态进行恢复
 
-  ``` 
+  ```
   pcs resource cleanup resource_id
-  ``` 
-		
+  ```
+
   当执行以上命令后，再次执行`pcs resource`如果有需要进行ban的服务，需要按照上面的步骤进行服务重新启动
 
 ## 配置 nova vnc console 支持 https
@@ -282,7 +282,7 @@ $ mysql -e 'show full processlist'
 ```
 # pcs resource show p_mysql
  Resource: p_mysql (class=ocf provider=mirantis type=mysql-wss)
-  Attributes: test_user=wsrep_sst test_passwd=sTNX2iFv socket=/var/lib/mysql/mysql.sock 
+  Attributes: test_user=wsrep_sst test_passwd=sTNX2iFv socket=/var/lib/mysql/mysql.sock
   Operations: monitor interval=120 timeout=115 (p_mysql-monitor-120)
               start interval=0 timeout=475 (p_mysql-start-0)
               stop interval=0 timeout=175 (p_mysql-stop-0)
@@ -311,7 +311,7 @@ $ mysql -e 'show full processlist'
 
 #### 删除备份节点数据库数据目录
 
-> 不直接进行删除，需要保留备份以便出现新的问题时进行恢复尝试。 
+> 不直接进行删除，需要保留备份以便出现新的问题时进行恢复尝试。
 
 ```
 # mv mysql mysql.`date +%y%m%d%H%M%S`
@@ -351,3 +351,69 @@ OCF_ROOT=/usr/lib/ocf
 #### 继续进行其它操作
 
 [重新进行备份](backup_restore/openstack_backup_restore/database_backup.md#停止mysql同步机制) 或跳过备份，[对 Mysql 集群进行恢复](backup_restore/openstack_backup_restore/database_backup.md#恢复mysql同步机制)
+
+***
+
+## 配置nova vnc https
+
+> 获取ca.pem 文件
+
+正式环境使用注册的认证文件, 合并为ca.pem文件
+
+```
+1、 申请的密钥文件.crt 证书文件中可能包括多个部分, 选取其中的第一部分粘贴至一个新的.crt文件
+2、 查看申请的.key文件, 如果文件中存在语法错误等, 需要手动将.key文件中语法错误部分删除
+3、 使用cat 新的.crt文件 .key文件 | tee ca.pem ( 如： cat ca.crt ca.key | tee ca.pem）
+```
+
+> nova 配置ssl目录
+
+创建ssl 目录, 将生成的.pem文件拷贝至ssl 目录
+
+将ssl 目录拷贝至controller节点的/etc/nova/ 目录下, 同时将ssl 目录拷贝到所有controller节点的/etc/nova/ 目录下
+
+> 配置novnc https关于haproxy(每个controller节点都要执行)
+
+*  配置/etc/haproxy/conf.d/170-nova-novncproxy.cfg文件
+
+```
+修改文件中
+bind 25.0.0.2:6080
+为：
+bind 25.0.0.2:6080 ssl crt /etc/nova/ssl/ca.pem   (文件内容修改增加了ca.pem认证的配置）
+```
+
+* 重启haproxy服务
+
+```
+# pcs resource ban p_haproxy node-15.eayun.com  (停止node-15上的haproxy服务)
+# pcs resource clear p_haproxy node-15.eayun.com  (启动node-15上的haproxy服务)
+
+```
+
+启动后需要查看服务能否正常启动, 如果不能正常启动需要查看node-15下的 /var/log/daemon.log日志, 如果服务不能启动, 能够查询到haproxy不能启动原因, 这里进行了证书认证配置, 因此不能启动可能与证书有关, 需要查看ca.pem证书信息
+
+完成node-15 haproxy服务正常启动后, 依次启动其它controll节点上的haproxy服务
+
+> compute节点配置nova.conf文件(每个compute节点都要配置)
+
+```
+修改/etc/nova/nova.conf文件中的
+novncproxy_base_url=http://25.0.0.2:6080/vnc_auto.html
+为：
+novncproxy_base_url=https://25.0.0.2:6080/vnc_auto.html
+```
+
+* 重启compute服务(每一台compute节点都要执行)
+
+完成nova.conf配置后需要重启compute服务, 使配置生效
+
+```
+# systemctl restart openstack-nova-compute
+```
+
+* 测试novnc https访问
+
+登录horizon控制台, 选择云主机, 打开云主机控制台, 发现控制台加载变为https://25.0.0.2:6080/vnc_auto.html?token=d85bc482-624c-4f17-86a3-1a7acc9aec6b&title=blkart-win-utc2%284774e22a-2b34-4c3a-b113-7b13715765c8%29
+
+确认novnc https访问成功, 配置完成

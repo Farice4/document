@@ -6,6 +6,7 @@
 * [ 配置 nova vnc console 支持 https](#配置 nova vnc console 支持 https)
 * [ windows 虚拟机支持多核 CPU](#windows虚拟机支持多核CPU)
 * [ openstack 数据库备份故障恢复 ](#openstack 数据库备份故障恢复)
+* [ Ceph集群状态异常导致nova service-list中某些Compute节点上的openstack-nova-compute服务状态为down](#Ceph集群状态异常导致nova service-list中某些Compute节点上的openstack-nova-compute服务状态为down)
 
 ## horzion上vnc加载失败
 * 用 eayunstack 运维工具检查 EayunStack 集群是否正常
@@ -417,3 +418,11 @@ novncproxy_base_url=https://25.0.0.2:6080/vnc_auto.html
 登录horizon控制台, 选择云主机, 打开云主机控制台, 发现控制台加载变为https://25.0.0.2:6080/vnc_auto.html?token=d85bc482-624c-4f17-86a3-1a7acc9aec6b&title=blkart-win-utc2%284774e22a-2b34-4c3a-b113-7b13715765c8%29
 
 确认novnc https访问成功, 配置完成
+
+***
+
+## Ceph集群状态异常导致nova service-list中某些Compute节点上的openstack-nova-compute服务状态为down
+
+* 恢复 Ceph 集群状态
+
+* 重启 nova service-list 中状态为 down 的节点上的 openstack-nova-compute 服务

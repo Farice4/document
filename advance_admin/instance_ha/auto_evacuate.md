@@ -9,7 +9,7 @@
 * Consul 集群正常运行, Leader选举成功
 * 电源管理配置IPMI自动认证
 * 云主机存储方式为共享存储方式
-* 云主机撤离时原计算节点必须关机
+* 云主机撤离时原计算节点已处于关机状态
 
 
 ## 实现原理
@@ -44,4 +44,4 @@
 
 查看/var/log/autoevacuate/auto-novaevacuate.log
 
-日志主要查看控制节点为leader的auto-novaevacuate.log日志, 日志中会记录检测的计算节点状态, 如果有自动迁移, 会记录那些云主机进行了撤离操作。
+日志主要查看控制节点为leader的auto-novaevacuate.log日志, 日志中会记录检测的计算节点状态, 如果有自动迁移, 会记录云主机进行了撤离操作。

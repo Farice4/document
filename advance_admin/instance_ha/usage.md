@@ -7,11 +7,17 @@
 
 * 检测consul 服务状态
 
-检测consul 集群的状态, leader选举状态
+检测consul 集群的状态, leader选举状态(检测命令见前面章节的云主机高可用consul集群介绍)
 
 * 检测autoevacuate服务状态
 
 检测autoevacuate服务状态, 检测autoevacuate 所在consul leader节点的日志, 日志中会记录检测是否正常, 计算节点检测信息
+
+```
+# systemctl status eayunstack-auto-evacuate (查看服务状态)
+# /var/log/autoevacuate/auto-novaevacuate.log (查看日志)
+
+```
 
 * 确保环境中的nova 服务正常
 
@@ -37,7 +43,7 @@
 +----+------------------+-------------------+----------+---------+-------+----------------------------+-----------------+
 
 ```
-确保controller节点服务正常, compute节点的Status 为enabled, State 为up状态
+确保controller节点服务正常, compute节点上的nova-compute Status 为enabled, State 为up状态
 
 
 ## 计算节点宕机测试

@@ -31,3 +31,4 @@
 |2016/12/12|“高级管理“ 添加 “云硬盘强制备份“ 章节|2.0.6|
 |2016/12/12|更新 README，纠正作者姓名错别字|2.0.7|
 |2016/12/12|“FAQ“ 添加 “ 配置 nova vnc console 支持 https“ 章节|2.0.8|
+|2016/12/13|* 修改错别字<br /> * “FAQ“ 添加 “Ceph集群状态异常导致nova service-list中某些Compute节点上的openstack-nova-compute服务状态为down“ 章节|2.0.9|

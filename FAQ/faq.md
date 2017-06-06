@@ -156,8 +156,7 @@ openstack-cinder-volume openstack-cinder-scheduler \
 openstack-heat-api-cfn openstack-heat-api-cloudwatch \
 openstack-heat-api openstack-keystone \
 openstack-glance-api openstack-glance-registry \
-neutron-qos-agent neutron-metering-agent \
-openstack-ceilometer-api \
+neutron-qos-agent openstack-ceilometer-api \
 openstack-ceilometer-collector \
 openstack-ceilometer-notification
 ```
@@ -182,7 +181,6 @@ pcs resource enable p_openstack-ceilometer-central
 ```
 systemctl restart openstack-nova-compute
 systemctl restart neutron-qos-agent
-systemctl restart neutron-metering-agent
 systemctl restart openstack-ceilometer-compute
 ```
 
